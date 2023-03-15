@@ -1,7 +1,20 @@
 @charset "utf-8";
 
-/** @section Reset / normalise */
+/**
+ * @site To Do Wild
+ * @author Victor Brito, Anthony Lasternas, Amani Nefzi, Rudy Rano and Romaric Yi
+ * 
+ * Reset / normalize CSS inspired from Corinne Durrmeyer’s normalize.css
+ * @see https://github.com/inseo/bpi-normalize/blob/master/normalize.css
+ */
 
+/** @section Reset / normalize */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 body,
 h1, h2, h3, h4, h5, h6,
 ul, ol, li, dl, dt, dd,
@@ -20,11 +33,10 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 body {
-    font-size: 100%;
     line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6, pre {
-    font-size: 1rem;
+    font-size: inherit;
 }
 pre {
     white-space: pre-wrap;
@@ -124,7 +136,7 @@ abbr[title] {
     text-shadow: none
 }
 
-/** @section Reset / normalise for printing */
+/** @section Reset / normalize for printing */
 
 @media print {
     * {
