@@ -67,10 +67,11 @@ header {
     margin: 10px;
 }
 
-.logo {
+svg.logo {
     width: 30vw;
     min-width: 180px;
     height: auto;
+    fill: #1f6c99;
 }
 
 /* HEADER DESIGN --- END */
