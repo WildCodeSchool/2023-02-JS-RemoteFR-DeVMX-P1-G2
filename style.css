@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+/** @section Reset / normalise */
+
+body,
+h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd,
+p, pre, blockquote,
+figure, figcaption,
+form, fieldset, legend, input, select, textarea, button {
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    /**
+     * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
+     * @bugfix @affected Safari iOS
+     */
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-size: 100%;
+    line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6, pre {
+    font-size: 1rem;
+}
+pre {
+    white-space: pre-wrap;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+address {
+    font-style: normal;
+}
+fieldset, legend, img, abbr, acronym {
+    border: none;
+}
+legend {
+    white-space: normal;
+}
+input, select, textarea, button, img {
+    vertical-align: middle;
+}
+input, select, textarea, button, code, kbd, samp, var {
+    font-size: inherit;
+}
+input, select, textarea, button {
+    font-family: inherit;
+    border: 1px solid;
+}
+/**
+ * Rounded corners removal
+ * @css-for Safari iOS
+ */
+input, select, textarea {
+    border-radius: 0;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    cursor: pointer;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    border: none;
+}
+input[type="search"] {
+    /**
+     * Field default appearance removal
+     * @css-for Safari
+     */
+    appearance: none;
+}
+/**
+ * Default appearance removal on mobile OSs
+ * @css-for Safari iOS
+ */
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+}
+/**
+ * Removal of the opacity as applied by default (to enhance the contrast)
+ * @css-for Firefox
+ */
+input::placeholder {
+    opacity: 1;
+}
+input[disabled],
+button[disabled] {
+    cursor: default;
+}
+button {
+    background: transparent;
+}
+button:focus {
+    /**
+     * Outline added
+     * @css-for Firefox
+     */
+    outline: thin dotted;
+}
+img, object, audio, video, embed, svg {
+    max-width: 100%;
+    height: auto;
+}
+/**
+  * Removal of the text decoration
+  * @css-for Firefox
+  */
+abbr[title] {
+    text-decoration: none;
+}
+::selection {
+    color: black;
+    background-color: lightblue;
+    text-shadow: none
+}
+
+/** @section Reset / normalise for printing */
+
+@media print {
+    * {
+        color: black !important;
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    img, object, audio, video, embed, svg {
+        page-break-inside: avoid;
+    }
+}
