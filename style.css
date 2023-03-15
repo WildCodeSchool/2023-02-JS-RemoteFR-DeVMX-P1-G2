@@ -46,13 +46,13 @@
     border-radius: 50%;
     transform: translateY(-50%);
     transition: all .5s;
-    background-image: url("soleil2.png");
+    background-image: url("assets/soleil2.png");
 }
 
 .switch input:checked+span:before {
     left: 34px;
     background: rgb(138, 44, 226);
-    background-image: url("lune5.png");
+    background-image: url("assets/lune5.png");
 }
 
 body {
