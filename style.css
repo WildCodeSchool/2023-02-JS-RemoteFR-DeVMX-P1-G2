@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    background: rgb(190, 228, 250);
+}
 
 .switch {
     display: inline-block;
@@ -55,9 +59,6 @@
     background-image: url("assets/lune5.png");
 }
 
-body {
-    margin: 0;
-}
 
 /* HEADER DESIGN --- START */
 header {
@@ -81,7 +82,7 @@ svg.logo {
 /* FOOTER DESIGN --- START */
 footer {
     position: fixed;
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     padding: 10px;
     bottom: 0;
@@ -91,10 +92,14 @@ footer {
 }
 
 .btnContact {
-    width: 60px;
-    height: 60px;
+    margin: 5px 0 0 10px;
+    width: 50px;
+    height: 50px;
     font-size: 28px;
-    border-radius: 8px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
 }
 
 button .textBtnContact {
@@ -118,24 +123,36 @@ button .textBtnContact {
 #formContact {
     display: none;
     position: fixed;
+    width: 90vw;
+    height: 70%;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
     padding: 20px;
-    background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 10px;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
 }
 
 
 
 .btnAddTask {
-    width: 60px;
-    height: 60px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
     font-size: 28px;
     border-radius: 8px;
+    background: #1f6c99;
+    color: whitesmoke; 
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    position: absolute;
 }
 
 button .textBtnAddTask {
@@ -144,11 +161,7 @@ button .textBtnAddTask {
 
 @media screen and (min-width: 600px) {
     .btnAddTask {
-        margin-top: 15px;
-        width: 200px;
-        height: auto;
-        font-size: 16px;
-        border-radius: 5px;
+        display: none;
     }
 
     button .textBtnAddTask {
