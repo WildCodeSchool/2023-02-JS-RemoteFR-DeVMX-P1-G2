@@ -260,6 +260,10 @@ body {
     color: white;
     background: #1f6c99;
 }
+.contact .error {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+}
 /* From breakpoint 740px (740 / 16 to obtain it in em) */
 @media (min-width: 46.25em) {
     .contact {
