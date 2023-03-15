@@ -82,7 +82,6 @@ svg.logo {
 /* FOOTER DESIGN --- START */
 footer {
     position: fixed;
-    /* display: flex; */
     justify-content: space-between;
     padding: 10px;
     bottom: 0;
