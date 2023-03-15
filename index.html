@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="style.css">
     <title>ToDo Wild</title>
 </head>
-<body>
+<body class="dark-mode">
     
+    <!-- Begin contact form -->
+    <form class="contact" method="post" action="./">
+        <h2>Contact</h2>
+        <p>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text">
+        </p>
+        <p>
+            <label for="email" lang="en">Mail</label>
+            <input id="email" name="email" type="email">
+        </p>
+        <p>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" cols="80" rows="10"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Envoyer">
+        </p>
+    </form>
+    <!-- End contact form -->
+
     <script src="script.js"></script>
 </body>
 </html>
