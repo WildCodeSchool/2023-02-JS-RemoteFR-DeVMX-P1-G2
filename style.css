@@ -151,3 +151,34 @@ abbr[title] {
         page-break-inside: avoid;
     }
 }
+
+/** @section Font loading */
+
+@font-face {
+    src: url("fonts/Roboto-Regular.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    src: url("fonts/Roboto-Italic.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    src: url("fonts/Roboto-Bold.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    src: url("fonts/Roboto-BoldItalic.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
