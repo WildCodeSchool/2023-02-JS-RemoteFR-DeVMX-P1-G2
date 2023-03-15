@@ -182,3 +182,12 @@ abbr[title] {
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
+
+/** @section General layout */
+body {
+    background: linear-gradient(150deg, rgba(188,200,247,1) 0%, rgba(227,249,251,1) 29%, rgba(231,246,251,1) 69%) no-repeat;
+    min-height: 100vh;
+}
+.dark-mode {
+    background-image: linear-gradient(60deg, rgba(18,26,64,1) 0%, rgba(21,87,140,1) 50%, rgba(52,147,199,1) 100%);
+}
