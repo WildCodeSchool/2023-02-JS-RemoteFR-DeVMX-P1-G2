@@ -4,11 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="style.css">
+    
     <title>ToDo Wild</title>
 </head>
+
 <body>
+    <header>
+        <img class=logo src="./assets/todoWild.svg" alt="Todo wild logo">
+        
+        <label class="switch">
+            <input type="checkbox" />
+            <span></span>
+        </label>
     
+    </header>
+
+
+    <footer>
+
+        <section class="contact">
+            <button class="btnContact" onclick="openFormContact()">
+                &#9993;
+                <span class="textBtnContact">Contactez-nous</span>
+            </button>
+
+            <div id="formContact">
+                <h2>Contactez-nous</h2>
+                
+            </div>
+        </section>
+
+        <section class="addTask">
+
+            <button class="btnAddTask" onclick="">
+                +
+                <span class="textBtnAddTask">Créer une liste</span>
+            </button>
+
+        </section>
+
+
+        
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
