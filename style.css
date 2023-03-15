@@ -212,7 +212,7 @@ abbr[title] {
 }
 
 body {
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
 /** @section General layout */
@@ -221,5 +221,50 @@ body {
     min-height: 100vh;
 }
 .dark-mode {
+    color: white;
     background-image: linear-gradient(60deg, rgba(18,26,64,1) 0%, rgba(21,87,140,1) 50%, rgba(52,147,199,1) 100%);
+}
+
+/** @section Contact */
+.contact,
+.contact input,
+.contact textarea {
+    border-radius: 0.5rem;
+}
+.contact {
+    padding: 1rem;
+    margin: 2rem;
+    border: 1px solid #a6a6a6;
+}
+.contact h2 {
+    font-size: 3.6rem;
+    text-align: center;
+}
+.contact p {
+    font-size: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 1rem;
+}
+.contact p:last-child {
+    margin: 0;
+}
+.contact input,
+.contact textarea {
+    background: #d9d9d9;
+    padding: 1rem;
+    border: none;
+}
+.contact input[type="submit"] {
+    font-weight: bold;
+    color: white;
+    background: #1f6c99;
+}
+/* From breakpoint 740px (740 / 16 to obtain it in em) */
+@media (min-width: 46.25em) {
+    .contact {
+        width: 70rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
