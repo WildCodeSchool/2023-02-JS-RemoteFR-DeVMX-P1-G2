@@ -231,17 +231,12 @@ body {
 .contact textarea {
     border-radius: 0.5rem;
 }
-.contact {
-    padding: 1rem;
-    margin: 2rem;
-    border: 1px solid #a6a6a6;
-}
-.contact h2 {
-    font-size: 3.6rem;
-    text-align: center;
+
+section>form>h2 {
+    font-size: 3rem;
 }
 .contact p {
-    font-size: 2.4rem;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     margin: 2rem 0 1rem;
@@ -255,6 +250,11 @@ body {
     padding: 1rem;
     border: none;
 }
+
+textarea #message {
+    height: 80%;
+}
+
 .contact input[type="submit"] {
     font-weight: bold;
     color: white;
@@ -264,15 +264,6 @@ body {
     font-size: 1.6rem;
     margin-left: 1rem;
 }
-/* From breakpoint 740px (740 / 16 to obtain it in em) */
-@media (min-width: 46.25em) {
-    .contact {
-        width: 70rem;
-        margin-right: auto;
-        margin-left: auto;
-    }
-}
-
 
 .switch {
     display: inline-block;
@@ -385,6 +376,10 @@ button .textBtnContact {
     button .textBtnContact {
         display: initial;
     }
+}
+
+form label {
+    display: none;
 }
 
 #formContact {

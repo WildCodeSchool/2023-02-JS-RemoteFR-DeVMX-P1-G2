@@ -93,64 +93,67 @@ function removeTask(group, task)
 }
 
 // Checking the contact form
-const contact = document.querySelector('.contact');
 
-if (contact)
-{
-    contact.addEventListener('submit', e =>
-    {
-        // Just to prevent the form to behave normally when submitted
-        e.preventDefault();
 
-        // A function to remove all previous error messages, if present
-        function removeErrorMessages(element)
-        {
-            let label = element.querySelectorAll('label');
-            label.forEach(node =>
-            {
-                let spanError = node.querySelector('.error');
-                if (spanError) node.removeChild(spanError);
-            });
-        }
+// const contact = document.querySelector('.contact');
+
+// if (contact)
+// {
+//     contact.addEventListener('submit', e =>
+//     {
+//         // Just to prevent the form to behave normally when submitted
+//         e.preventDefault();
+
+//         // A function to remove all previous error messages, if present
+//         function removeErrorMessages(element)
+//         {
+//             let label = element.querySelectorAll('label');
+//             label.forEach(node =>
+//             {
+//                 let spanError = node.querySelector('.error');
+//                 if (spanError) node.removeChild(spanError);
+//             });
+//         }
             
-        // Remove all previous error messages, if present
-        removeErrorMessages(contact);
+//         // Remove all previous error messages, if present
+//         removeErrorMessages(contact);
 
-        // Let’s check the fields to see if at least one is empty (to fill with spaces only is not to fill)
-        let aFields = contact.querySelectorAll('[required]'),
-            emptyFields = new Map();
-        aFields.forEach(node =>
-        {
-            if (!node.value || node.value.match(/^\s+$/m) !== null) emptyFields.set(node, 'Le champ doit être rempli.');
+//         // Let’s check the fields to see if at least one is empty (to fill with spaces only is not to fill)
+//         let aFields = contact.querySelectorAll('[required]'),
+//             emptyFields = new Map();
+//         aFields.forEach(node =>
+//         {
+//             if (!node.value || node.value.match(/^\s+$/m) !== null) emptyFields.set(node, 'Le champ doit être rempli.');
             
-            // An e-mail address is of a certain type, so it has to match the regexp
-            if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="en">mail</span> n’est pas correctement renseignée.');
-        });
+//             // An e-mail address is of a certain type, so it has to match the regexp
+//             if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="en">mail</span> n’est pas correctement renseignée.');
+//         });
 
-        // At least one field is empty
-        if (emptyFields.size > 0)
-        {
-            for (let [node, errorMessage] of emptyFields)
-            {
-                let label = node.parentNode.getElementsByTagName('label')[0],
-                    span = document.createElement('span');
-                    span.className = 'error';
-                span.innerHTML = errorMessage;
-                label.appendChild(span);
-            }
-        }
+//         // At least one field is empty
+//         if (emptyFields.size > 0)
+//         {
+//             for (let [node, errorMessage] of emptyFields)
+//             {
+//                 let label = node.parentNode.getElementsByTagName('label')[0],
+//                     span = document.createElement('span');
+//                     span.className = 'error';
+//                 span.innerHTML = errorMessage;
+//                 label.appendChild(span);
+//             }
+//         }
 
-        // All fields are filled
-        else
-        {
-            // Remove all previous error messages, if present
-            removeErrorMessages(contact);
+//         // All fields are filled
+//         else
+//         {
+//             // Remove all previous error messages, if present
+//             removeErrorMessages(contact);
 
-            // Confirm the e-mail sending
-            console.log('Votre message a été envoyé et sera traité dans les plus brefs délais.');
+//             // Confirm the e-mail sending
+//             console.log('Votre message a été envoyé et sera traité dans les plus brefs délais.');
 
-            // And the great reset of the form (no, this is not a conspiracy theory :-D )
-            contact.reset();
-        }
-    });
-}
+//             // And the great reset of the form (no, this is not a conspiracy theory :-D )
+//             contact.reset();
+//         }
+//     });
+// }
+ 
