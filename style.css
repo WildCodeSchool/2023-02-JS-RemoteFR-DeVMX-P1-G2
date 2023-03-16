@@ -25,6 +25,7 @@ form, fieldset, legend, input, select, textarea, button {
     margin: 0;
 }
 html {
+    position: fixed;
     font-size: 62.5%;
     /**
      * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
@@ -218,7 +219,9 @@ body {
 /** @section General layout */
 body {
     background: linear-gradient(150deg, rgba(188,200,247,1) 0%, rgba(227,249,251,1) 29%, rgba(231,246,251,1) 69%) no-repeat;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+
 }
 .dark-mode {
     color: white;
