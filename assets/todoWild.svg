@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>ToDo Wild</title>
-
-</head>
-
-<body>
-    <header>
-        <svg class="logo" version="1.0" xmlns="http://www.w3.org/2000/svg"
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="1154.000000pt" height="216.000000pt" viewBox="0 0 1154.000000 216.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,216.000000) scale(0.100000,-0.100000)"
->
+fill="#000000" stroke="none">
 <path d="M2060 2029 c-253 -28 -441 -242 -534 -606 -34 -130 -46 -218 -41
 -303 3 -47 0 -116 -7 -153 -9 -52 -8 -87 1 -150 14 -93 53 -216 83 -265 23
 -38 33 -37 19 1 -10 27 -1 82 15 82 13 0 15 -118 2 -127 -15 -9 61 -98 120
@@ -330,62 +318,4 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
 -18 24 0 21 54 29 66 10z m-156 -38 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0
 6 5 10 10 10 6 0 10 -4 10 -10z"/>
 </g>
-        </svg>
-
-
-        <label class="switch">
-            <input type="checkbox" />
-            <span></span>
-        </label>
-
-    </header>
-
-
-    <footer>
-
-        <section class="contact">
-            <button class="btnContact" onclick="openFormContact()">
-                &#9993;
-                <span class="textBtnContact">Contactez-nous</span>
-            </button>
-
-                <!-- Begin contact form -->
-            <form class="contact" id="formContact" method="post" action="./">
-                <h2>Contact</h2>
-                <p>
-                    <label for="name">Nom</label>
-                    <input id="name" name="name" type="text" placeholder="Nom" required>
-                </p>
-                <p>
-                    <label for="email" lang="en">Mail</label>
-                    <input id="email" name="email" type="email" placeholder="Email" required>
-                </p>
-                <p>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" cols="80" rows="5" placeholder="Message" required></textarea>
-                </p>
-                <p>
-                    <input type="submit" value="Envoyer" formnovalidate>
-                </p>
-            </form>
-            <!-- End contact form -->
-
-        </section>
-
-        <section class="addTask">
-
-            <button class="btnAddTask" onclick="">
-                +
-                <span class="textBtnAddTask">Créer une liste</span>
-            </button>
-
-        </section>
-
-
-    </footer>
-    
-
-    <script src="script.js"></script>
-</body>
-
-</html>
+</svg>

@@ -25,6 +25,7 @@ form, fieldset, legend, input, select, textarea, button {
     margin: 0;
 }
 html {
+    position: fixed;
     font-size: 62.5%;
     /**
      * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
@@ -218,7 +219,9 @@ body {
 /** @section General layout */
 body {
     background: linear-gradient(150deg, rgba(188,200,247,1) 0%, rgba(227,249,251,1) 29%, rgba(231,246,251,1) 69%) no-repeat;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+
 }
 .dark-mode {
     color: white;
@@ -231,17 +234,12 @@ body {
 .contact textarea {
     border-radius: 0.5rem;
 }
-.contact {
-    padding: 1rem;
-    margin: 2rem;
-    border: 1px solid #a6a6a6;
-}
-.contact h2 {
-    font-size: 3.6rem;
-    text-align: center;
+
+section>form>h2 {
+    font-size: 3rem;
 }
 .contact p {
-    font-size: 2.4rem;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     margin: 2rem 0 1rem;
@@ -255,6 +253,11 @@ body {
     padding: 1rem;
     border: none;
 }
+
+textarea #message {
+    height: 80%;
+}
+
 .contact input[type="submit"] {
     font-weight: bold;
     color: white;
@@ -264,11 +267,187 @@ body {
     font-size: 1.6rem;
     margin-left: 1rem;
 }
-/* From breakpoint 740px (740 / 16 to obtain it in em) */
-@media (min-width: 46.25em) {
-    .contact {
-        width: 70rem;
-        margin-right: auto;
-        margin-left: auto;
+
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.switch input {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 0;
+    height: 0;
+}
+
+.switch input+span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #99b4df;
+    border-radius: 20px;
+}
+
+.switch input:checked+span {
+    background: #346abf;
+}
+
+.switch input+span:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all .5s;
+    background-image: url("assets/soleil2.png");
+}
+
+.switch input:checked+span:before {
+    left: 34px;
+    background: rgb(138, 44, 226);
+    background-image: url("assets/lune5.png");
+}
+
+
+/* HEADER DESIGN --- START */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+svg.logo {
+    width: 30vw;
+    min-width: 180px;
+    max-width: 400px;
+    height: auto;
+    fill: #1f6c99;
+}
+
+/* HEADER DESIGN --- END */
+
+
+
+/* FOOTER DESIGN --- START */
+footer {
+    position: fixed;
+    justify-content: space-between;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+}
+
+.btnContact {
+    margin: 5px 0 0 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
+}
+
+button .textBtnContact {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnContact {
+        margin-top: 15px;
+        width: 200px;
+        height: auto;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    button .textBtnContact {
+        display: initial;
     }
 }
+
+form label {
+    display: none;
+}
+
+#formContact {
+    display: none;
+    position: fixed;
+    width: 90vw;
+    height: 70%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
+}
+
+
+
+.btnAddTask {
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 28px;
+    border-radius: 8px;
+    background: #1f6c99;
+    color: whitesmoke; 
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    position: absolute;
+}
+
+button .textBtnAddTask {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnAddTask {
+        display: none;
+    }
+
+    button .textBtnAddTask {
+        display: initial;
+    }
+}
+
+#formAddTask {
+    display: none;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* FOOTER DESIGN --- END */
+
+
