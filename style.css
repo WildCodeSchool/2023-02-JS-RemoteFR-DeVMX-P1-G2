@@ -3,78 +3,74 @@
 }
 
 
-.switch {
-    display: inline-block;
-    position: relative;
-    width: 70px;
-    height: 40px;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.switch input {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 0;
-    height: 0;
-}
-
-.switch input+span {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #99b4df;
-    border-radius: 20px;
-}
-
-.switch input:checked+span {
-    background: #346abf;
-}
-
-.switch input+span:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    width: 32px;
-    height: 32px;
-    background: white;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    transition: all .5s;
-    background-image: url("assets/soleil2.png");
-}
-
-.switch input:checked+span:before {
-    left: 34px;
-    background: rgb(138, 44, 226);
-    background-image: url("assets/lune5.png");
-}
-
 body {
-    margin: 0;
+
+    margin: 0px;
+
+    background: linear-gradient(150deg, rgba(188, 200, 247, 1) 0%, rgba(227, 249, 251, 1) 29%, rgba(231, 246, 251, 1) 69%)no-repeat;
+    min-height: 100vh;
+
+}
+
+.dark-theme {
+
+
+
+    background: linear-gradient(60deg, rgba(18, 26, 64, 1) 0%, rgba(21, 87, 140, 1) 50%, rgba(52, 147, 199, 1) 100%)no-repeat;
+    min-height: 100vh;
+
 }
 
 /* HEADER DESIGN --- START */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
+
+.container {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin-bottom: 30px;
 }
 
-.logo {
-    width: 30vw;
-    min-width: 180px;
-    height: auto;
+#toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 40px;
+    width: 75px;
+    background-color: rgb(46, 105, 214);
+    position: absolute;
+    right: 0;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
 }
+
+#toggle:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 5px;
+    height: 30px;
+    left: 7px;
+    width: 30px;
+    background-image: url("assets/soleil2.png");
+    ;
+    transition: all .5s;
+    border-radius: 50%;
+}
+
+.dark-theme #toggle {
+    background-color: rgb(73, 43, 245);
+    ;
+}
+
+.dark-theme #toggle:after {
+    background-color: transparent;
+    background-image: url("assets/lune5.png");
+    top: 4px;
+    left: 40px;
+}
+
 
 /* HEADER DESIGN --- END */
-
 
 
 /* FOOTER DESIGN --- START */
