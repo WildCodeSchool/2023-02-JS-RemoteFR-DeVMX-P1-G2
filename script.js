@@ -90,18 +90,24 @@ if (contact)
         // Just to prevent the form to behave normally when submitted
         e.preventDefault();
 
-        // A function to remove all previous error messages, if present
+        // A function to remove all previous error messages and `aria-invalid="true"` attributes, if present
         function removeErrorMessages(element)
         {
             let label = element.querySelectorAll('label');
             label.forEach(node =>
             {
-                let spanError = node.querySelector('.error');
+                let spanError = node.querySelector('.error'),
+                    field = node.nextSibling;
+                while (field.nodeName === '#text')
+                {
+                    field = field.nextSibling; // To ensure the sibling in question is really an `input` or `textarea` element, not a text node
+                }
                 if (spanError) node.removeChild(spanError);
+                field.removeAttribute('aria-invalid');
             });
         }
             
-        // Remove all previous error messages, if present
+        // Remove all previous error messages and `aria-invalid="true"` attributes, if present
         removeErrorMessages(contact);
 
         // Let’s check the fields to see if at least one is empty (to fill with spaces only is not to fill)
@@ -123,6 +129,7 @@ if (contact)
                 let label = node.parentNode.getElementsByTagName('label')[0],
                     span = document.createElement('span');
                     span.className = 'error';
+                node.setAttribute('aria-invalid', 'true');
                 span.innerHTML = errorMessage;
                 label.appendChild(span);
             }
