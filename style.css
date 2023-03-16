@@ -27,13 +27,6 @@ body {
 
 /* HEADER DESIGN --- START */
 
-.container {
-    width: 100%;
-    height: 40px;
-    position: relative;
-    margin-bottom: 30px;
-}
-
 #toggle {
     -webkit-appearance: none;
     appearance: none;
@@ -45,6 +38,7 @@ body {
     border-radius: 20px;
     outline: none;
     cursor: pointer;
+    top: 0;
 }
 
 svg.logo {
