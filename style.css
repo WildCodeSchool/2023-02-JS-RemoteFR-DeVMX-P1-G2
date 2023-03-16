@@ -1,0 +1,274 @@
+@charset "utf-8";
+
+/**
+ * @site To Do Wild
+ * @author Victor Brito, Anthony Lasternas, Amani Nefzi, Rudy Rano and Romaric Yi
+ * 
+ * Reset / normalize CSS inspired from Corinne Durrmeyer’s normalize.css
+ * @see https://github.com/inseo/bpi-normalize/blob/master/normalize.css
+ */
+
+/** @section Reset / normalize */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body,
+h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd,
+p, pre, blockquote,
+figure, figcaption,
+form, fieldset, legend, input, select, textarea, button {
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    /**
+     * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
+     * @bugfix @affected Safari iOS
+     */
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6, pre {
+    font-size: inherit;
+}
+pre {
+    white-space: pre-wrap;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+address {
+    font-style: normal;
+}
+fieldset, legend, img, abbr, acronym {
+    border: none;
+}
+legend {
+    white-space: normal;
+}
+input, select, textarea, button, img {
+    vertical-align: middle;
+}
+input, select, textarea, button, code, kbd, samp, var {
+    font-size: inherit;
+}
+input, select, textarea, button {
+    font-family: inherit;
+    border: 1px solid;
+}
+/**
+ * Rounded corners removal
+ * @css-for Safari iOS
+ */
+input, select, textarea {
+    border-radius: 0;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    cursor: pointer;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    border: none;
+}
+input[type="search"] {
+    /**
+     * Field default appearance removal
+     * @css-for Safari
+     */
+    appearance: none;
+}
+/**
+ * Default appearance removal on mobile OSs
+ * @css-for Safari iOS
+ */
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+}
+/**
+ * Removal of the opacity as applied by default (to enhance the contrast)
+ * @css-for Firefox
+ */
+input::placeholder {
+    opacity: 1;
+}
+input[disabled],
+button[disabled] {
+    cursor: default;
+}
+button {
+    background: transparent;
+}
+button:focus {
+    /**
+     * Outline added
+     * @css-for Firefox
+     */
+    outline: thin dotted;
+}
+img, object, audio, video, embed, svg {
+    max-width: 100%;
+    height: auto;
+}
+/**
+  * Removal of the text decoration
+  * @css-for Firefox
+  */
+abbr[title] {
+    text-decoration: none;
+}
+::selection {
+    color: black;
+    background-color: lightblue;
+    text-shadow: none
+}
+
+/** @section Reset / normalize for printing */
+
+@media print {
+    * {
+        color: black !important;
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    img, object, audio, video, embed, svg {
+        page-break-inside: avoid;
+    }
+}
+
+/** @section Font loading */
+
+@font-face {
+    src: url("fonts/Roboto-Regular.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-Italic.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-Bold.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-BoldItalic.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Regular.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Italic.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Bold.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-BoldItalic.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+/** @section General layout */
+body {
+    background: linear-gradient(150deg, rgba(188,200,247,1) 0%, rgba(227,249,251,1) 29%, rgba(231,246,251,1) 69%) no-repeat;
+    min-height: 100vh;
+}
+.dark-mode {
+    color: white;
+    background-image: linear-gradient(60deg, rgba(18,26,64,1) 0%, rgba(21,87,140,1) 50%, rgba(52,147,199,1) 100%);
+}
+
+/** @section Contact */
+.contact,
+.contact input,
+.contact textarea {
+    border-radius: 0.5rem;
+}
+.contact {
+    padding: 1rem;
+    margin: 2rem;
+    border: 1px solid #a6a6a6;
+}
+.contact h2 {
+    font-size: 3.6rem;
+    text-align: center;
+}
+.contact p {
+    font-size: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 1rem;
+}
+.contact p:last-child {
+    margin: 0;
+}
+.contact input,
+.contact textarea {
+    background: #d9d9d9;
+    padding: 1rem;
+    border: none;
+}
+.contact input[type="submit"] {
+    font-weight: bold;
+    color: white;
+    background: #1f6c99;
+}
+.contact .error {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+}
+/* From breakpoint 740px (740 / 16 to obtain it in em) */
+@media (min-width: 46.25em) {
+    .contact {
+        width: 70rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
