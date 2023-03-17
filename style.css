@@ -1,0 +1,660 @@
+@charset "utf-8";
+
+/**
+ * @site To Do Wild
+ * @author Victor Brito, Anthony Lasternas, Amani Nefzi, Rudy Rano and Romaric Yi
+ * 
+ * Reset / normalize CSS inspired from Corinne Durrmeyer’s normalize.css
+ * @see https://github.com/inseo/bpi-normalize/blob/master/normalize.css
+ */
+
+/** @section Reset / normalize */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+ul {
+    list-style: none
+}
+
+button,
+input,
+select {
+    margin: 0
+}
+
+html {
+    box-sizing: border-box
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body,
+h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd,
+p, pre, blockquote,
+figure, figcaption,
+form, fieldset, legend, input, select, textarea, button {
+    padding: 0;
+    margin: 0;
+}
+html {
+    /* font-size: 62.5%; */
+    /**
+     * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
+     * @bugfix @affected Safari iOS
+     */
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6, pre {
+    font-size: inherit;
+}
+pre {
+    white-space: pre-wrap;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+address {
+    font-style: normal;
+}
+fieldset, legend, img, abbr, acronym {
+    border: none;
+}
+legend {
+    white-space: normal;
+}
+input, select, textarea, button, img {
+    vertical-align: middle;
+}
+input, select, textarea, button, code, kbd, samp, var {
+    font-size: inherit;
+}
+input, select, textarea, button {
+    font-family: inherit;
+    border: 1px solid;
+}
+/**
+ * Rounded corners removal
+ * @css-for Safari iOS
+ */
+input, select, textarea {
+    border-radius: 0;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    cursor: pointer;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    border: none;
+}
+input[type="search"] {
+    /**
+     * Field default appearance removal
+     * @css-for Safari
+     */
+    appearance: none;
+}
+/**
+ * Default appearance removal on mobile OSs
+ * @css-for Safari iOS
+ */
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+}
+/**
+ * Removal of the opacity as applied by default (to enhance the contrast)
+ * @css-for Firefox
+ */
+input::placeholder {
+    opacity: 1;
+}
+input[disabled],
+button[disabled] {
+    cursor: default;
+}
+button {
+    background: transparent;
+}
+button:focus {
+    /**
+     * Outline added
+     * @css-for Firefox
+     */
+    outline: thin dotted;
+}
+img, object, audio, video, embed, svg {
+    max-width: 100%;
+    height: auto;
+}
+/**
+  * Removal of the text decoration
+  * @css-for Firefox
+  */
+abbr[title] {
+    text-decoration: none;
+}
+::selection {
+    color: black;
+    background-color: lightblue;
+    text-shadow: none
+}
+
+/** @section Reset / normalize for printing */
+
+@media print {
+    * {
+        color: black !important;
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    img, object, audio, video, embed, svg {
+        page-break-inside: avoid;
+    }
+}
+
+/** @section Font loading */
+
+@font-face {
+    src: url("fonts/Roboto-Regular.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-Italic.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-Bold.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Roboto-BoldItalic.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Regular.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Italic.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-Bold.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    src: url("fonts/Montserrat-BoldItalic.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+/** @section General layout */
+html {
+    position: fixed;
+}
+body {
+    background: linear-gradient(150deg, rgba(188,200,247,1) 0%, rgba(227,249,251,1) 29%, rgba(231,246,251,1) 69%) no-repeat;
+    width: 100vw;
+
+}
+.dark-mode {
+    color: white;
+    background-image: linear-gradient(60deg, rgba(18,26,64,1) 0%, rgba(21,87,140,1) 50%, rgba(52,147,199,1) 100%);
+}
+main {
+    margin-top: 60px; /* ajustez cette valeur pour correspondre à la hauteur de votre header */
+    margin-bottom: 80px; /* ajustez cette valeur pour correspondre à la hauteur de votre footer */
+    height: calc(100vh - 140px); /* calculez la hauteur de la section main en soustrayant la hauteur du header et du footer */
+    overflow-y: auto; /* permet uniquement à la section main de défiler */
+}
+@media (min-width: 600px) {
+    main {
+        margin-top: 100px;
+        height: calc(100vh - 180px);
+    }
+}
+
+/** @section Contact */
+.contact,
+.contact input,
+.contact textarea {
+    border-radius: 0.5rem;
+}
+.contact {
+    padding: 2rem;
+    border: 1px solid gray;
+}
+
+section>form>h2 {
+    font-size: 3rem;
+}
+.contact p {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 1rem;
+}
+.contact p:last-child {
+    margin: 0;
+}
+.contact input,
+.contact textarea {
+    background: #d9d9d9;
+    padding: 1rem;
+    border: none;
+}
+
+textarea #message {
+    height: 80%;
+}
+
+.contact input[type="submit"] {
+    font-weight: bold;
+    color: white;
+    background: #1f6c99;
+}
+.contact .error {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+}
+
+body {
+
+    margin: 0px;
+
+    background: linear-gradient(150deg, rgba(188, 200, 247, 1) 0%, rgba(227, 249, 251, 1) 29%, rgba(231, 246, 251, 1) 69%)no-repeat;
+    min-height: 100vh;
+
+}
+
+.dark-theme {
+
+
+
+    background: linear-gradient(60deg, rgba(18, 26, 64, 1) 0%, rgba(21, 87, 140, 1) 50%, rgba(52, 147, 199, 1) 100%)no-repeat;
+    min-height: 100vh;
+
+}
+
+/* HEADER DESIGN --- START */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+#toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 40px;
+    width: 75px;
+    background-color: rgb(46, 105, 214);
+    position: absolute;
+    right: 1rem;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    top: 1rem;
+}
+
+svg.logo {
+    width: 30vw;
+    min-width: 180px;
+    max-width: 400px;
+    height: auto;
+    fill: #1f6c99;
+}
+
+.dark-theme svg.logo {
+    fill: #8acaef;
+}
+
+#toggle:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 5px;
+    height: 30px;
+    left: 7px;
+    width: 30px;
+    background-image: url("assets/soleil2.png");
+    ;
+    transition: all .5s;
+    border-radius: 50%;
+}
+
+.dark-theme #toggle {
+    background-color: rgb(21, 87, 140);
+}
+
+.dark-theme #toggle:after {
+    background-color: transparent;
+    background-image: url("assets/lune5.png");
+    top: 4px;
+    left: 40px;
+}
+
+
+/* HEADER DESIGN --- END */
+
+
+/* FOOTER DESIGN --- START */
+footer {
+    position: fixed;
+    justify-content: space-between;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+}
+
+.btnContact {
+    margin: 5px 0 0 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
+}
+.dark-theme .btnContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+button .textBtnContact {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnContact {
+        margin-top: 15px;
+        width: 200px;
+        height: auto;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    button .textBtnContact {
+        display: initial;
+    }
+}
+
+#formContact {
+    display: none;
+    position: fixed;
+    width: 90vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: gray;
+}
+.dark-theme #formContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+
+
+.btnAddTask {
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 28px;
+    border-radius: 8px;
+    background: #1f6c99;
+    color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    position: absolute;
+}
+
+button .textBtnAddTask {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnAddTask {
+        display: none;
+    }
+
+    button .textBtnAddTask {
+        display: initial;
+    }
+}
+
+#formAddTask {
+    display: none;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* FOOTER DESIGN --- END */
+
+img,
+video {
+    height: auto;
+    max-width: 100%
+}
+
+iframe {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+:root {
+    --postIt-Mobile: 42vw;
+    --max-width-postIt: 259px;
+    --full-postIt: 35%;
+    --postIt-section: 60%;
+}
+
+* {
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+
+.application {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.postItSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(15vw, 130px, 100%/7)), 1fr));
+    gap: 20px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.postIt {
+    width: 100%;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 1px 3px 8px 0px #9e9e9e;
+    text-align: left;
+    padding: 10px 8px;
+    color: white;
+    aspect-ratio: 1;
+}
+
+.postIt:not(div:first-child) {
+    background-color: #D9D9D9;
+}
+
+.postIt:first-child {
+    background: #4DA4D6;
+}
+
+.add-note {
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
+    box-shadow: 1px 3px 8px 0px #9e9e9e;
+    border-radius: 4px;
+    padding: 0 8px;
+    /* margin: 5px; */
+    font-size: 120px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+@media (max-width: 600px) {
+    .add-note {
+        display: none;
+    }
+}
+
+.add-note:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+div>h1 {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    font-weight: 700;
+    /* min-height: 85px; */
+    white-space: wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+div>p {
+    font-size: clamp(0.7rem, 5vw, 1rem);
+    padding: 15px 10px;
+}
+
+.visible {
+    width: var(--full-postIt);
+    height: 80vh;
+    background-color: #4DA4D6;
+    border-radius: 4px;
+}
+
+.small {
+    width: var(--postIt-section);
+}
+
+@media screen and (min-width:600px) {
+
+    section>div>h1 {
+        -webkit-line-clamp: 1;
+    }
+
+}
