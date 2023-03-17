@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 
     <title>ToDo Wild</title>
@@ -335,6 +340,25 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
         <input type="checkbox" id="toggle">
 
     </header>
+    
+
+    <main>
+        <section class="application">
+            <div class="postItSection">
+                <div class="postIt active">
+                    <h1>Click me</h1>
+                    <p>1 t&acirc;che</p>
+                </div>
+                <div class="postIt"></div>
+                <div class="postIt"></div>
+                <div class="postIt"></div>
+                <div class="postIt"></div>
+                <div class="postIt"></div>
+                <button class="add-note postIt" type="button">+</button>
+            </div>
+            <div class="fullPostIt hide"></div>
+        </section>
+    </main>
 
 
     <footer>
@@ -379,8 +403,6 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
 
 
     </footer>
-    
-
     <script src="script.js"></script>
 </body>
 
