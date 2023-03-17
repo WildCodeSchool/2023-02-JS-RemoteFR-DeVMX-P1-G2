@@ -292,6 +292,13 @@ body {
 
 /* HEADER DESIGN --- START */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
 #toggle {
     -webkit-appearance: none;
     appearance: none;
@@ -299,11 +306,11 @@ body {
     width: 75px;
     background-color: rgb(46, 105, 214);
     position: absolute;
-    right: 0;
+    right: 1rem;
     border-radius: 20px;
     outline: none;
     cursor: pointer;
-    top: 0;
+    top: 1rem;
 }
 
 svg.logo {
@@ -312,6 +319,10 @@ svg.logo {
     max-width: 400px;
     height: auto;
     fill: #1f6c99;
+}
+
+.dark-theme svg.logo {
+    fill: #8acaef;
 }
 
 #toggle:after {
@@ -329,8 +340,7 @@ svg.logo {
 }
 
 .dark-theme #toggle {
-    background-color: rgb(73, 43, 245);
-    ;
+    background-color: rgb(21, 87, 140);
 }
 
 .dark-theme #toggle:after {
@@ -365,6 +375,10 @@ footer {
     background: transparent;
     color: gray;
 }
+.dark-theme .btnContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
 
 button .textBtnContact {
     display: none;
@@ -392,6 +406,10 @@ button .textBtnContact {
     left: 50%;
     transform: translate(-50%, -50%);
     color: gray;
+}
+.dark-theme #formContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
 }
 
 
