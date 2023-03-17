@@ -6,10 +6,13 @@ document.getElementById("toggle").addEventListener("click", function () {
 // FOOTER JS --- START
 function openFormContact() {
     const form = document.getElementById('formContact');
+    const application = document.querySelector('.application');
     if (form.style.display === 'block') {
         form.style.display = 'none';
+        application.style = '';
     } else {
         form.style.display = 'block';
+        application.style.display = 'none';
     }
 }
 // FOOTER JS --- END
