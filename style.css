@@ -272,65 +272,38 @@ textarea #message {
     margin-left: 1rem;
 }
 
-.switch {
-    display: inline-block;
-    position: relative;
-    width: 70px;
-    height: 40px;
-    cursor: pointer;
-    overflow: hidden;
+body {
+
+    margin: 0px;
+
+    background: linear-gradient(150deg, rgba(188, 200, 247, 1) 0%, rgba(227, 249, 251, 1) 29%, rgba(231, 246, 251, 1) 69%)no-repeat;
+    min-height: 100vh;
+
 }
 
-.switch input {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 0;
-    height: 0;
-}
+.dark-theme {
 
-.switch input+span {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #99b4df;
-    border-radius: 20px;
-}
 
-.switch input:checked+span {
-    background: #346abf;
-}
 
-.switch input+span:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    width: 32px;
-    height: 32px;
-    background: white;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    transition: all .5s;
-    background-image: url("assets/soleil2.png");
-}
+    background: linear-gradient(60deg, rgba(18, 26, 64, 1) 0%, rgba(21, 87, 140, 1) 50%, rgba(52, 147, 199, 1) 100%)no-repeat;
+    min-height: 100vh;
 
-.switch input:checked+span:before {
-    left: 34px;
-    background: rgb(138, 44, 226);
-    background-image: url("assets/lune5.png");
 }
-
 
 /* HEADER DESIGN --- START */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
+
+#toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 40px;
+    width: 75px;
+    background-color: rgb(46, 105, 214);
+    position: absolute;
+    right: 0;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    top: 0;
 }
 
 svg.logo {
@@ -341,8 +314,34 @@ svg.logo {
     fill: #1f6c99;
 }
 
-/* HEADER DESIGN --- END */
+#toggle:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 5px;
+    height: 30px;
+    left: 7px;
+    width: 30px;
+    background-image: url("assets/soleil2.png");
+    ;
+    transition: all .5s;
+    border-radius: 50%;
+}
 
+.dark-theme #toggle {
+    background-color: rgb(73, 43, 245);
+    ;
+}
+
+.dark-theme #toggle:after {
+    background-color: transparent;
+    background-image: url("assets/lune5.png");
+    top: 4px;
+    left: 40px;
+}
+
+
+/* HEADER DESIGN --- END */
 
 
 /* FOOTER DESIGN --- START */
@@ -404,9 +403,9 @@ button .textBtnContact {
     font-size: 28px;
     border-radius: 8px;
     background: #1f6c99;
-    color: whitesmoke; 
+    color: whitesmoke;
     border: 1px solid gray;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
