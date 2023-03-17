@@ -77,7 +77,7 @@ th {
 
 :root {
     --postIt-Mobile: 42vw;
-    --postIt-desktop: 18.75%;
+    --max-width-postIt: 259px;
     --full-postIt: 35%;
     --postIt-section: 60%;
 }
@@ -85,45 +85,52 @@ th {
 * {
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
 }
 
+
 .application {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: flex-start;
+    width: 95%;
+    margin: 0 auto;
 }
+
 .postItSection {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    gap: 10px;
-    width: 100%;
-    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(15vw, 130px, 100%/7)), 1fr));
+    /*grid-template-columns: repeat(auto-fill, 200px);*/
+    gap: 20px;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .postIt {
-    width: clamp(var(--postIt-Mobile), 20%, var(--postIt-desktop));
+    width: 100%;
+    /* max-width: (var(--max-width-postIt)); */
     /* height: clamp(var(--postIt-Mobile), 25%, var(--postIt-desktop)); */
-    max-width: 160px;
-    max-height: 160px;
+    /*max-height: 160px;*/
+    padding: 16px;
     border-radius: 4px;
     box-shadow: 1px 3px 8px 0px #9e9e9e;
     text-align: left;
     padding: 10px 8px;
     margin: 5px;
     color: white;
+    aspect-ratio: 1;
 }
 
-.postIt:after {
+/* .postIt:after {
     content: "";
-    display: block;
+    /*display: block;
     padding-bottom: 100%;
-}
+} */
 
 .postIt:not(div:first-child) {
     background-color: #D9D9D9;
@@ -133,10 +140,28 @@ body {
     background: #4DA4D6;
 }
 
+.add-note {
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
+    box-shadow: 1px 3px 8px 0px #9e9e9e;
+    border-radius: 4px;
+    padding: 0 8px;
+    /* margin: 5px; */
+    font-size: 120px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-note:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 div>h1 {
     font-size: clamp(1rem, 5vw, 1.2rem);
     font-weight: 700;
-    min-height: 85px;
+    /* min-height: 85px; */
     white-space: wrap;
     overflow: hidden;
     display: -webkit-box;
@@ -144,7 +169,7 @@ div>h1 {
     -webkit-line-clamp: 3;
 }
 
-div>ul>li {
+div>p {
     font-size: clamp(0.7rem, 5vw, 1rem);
     padding: 15px 10px;
 }
@@ -155,6 +180,7 @@ div>ul>li {
     background-color: #4DA4D6;
     border-radius: 4px;
 }
+
 .small {
     width: var(--postIt-section);
 }
