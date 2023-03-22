@@ -658,3 +658,63 @@ div>p {
     }
 
 }
+
+/* Colour picker buttons */
+
+.fullPostIt.hide.visible {
+    position: relative;
+}
+.btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2px;
+    border: none;
+
+    margin: 8px;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.hide:not(.visible) .btn-container {
+    display: none;
+}
+
+.btn:hover {
+    background-color: #fcfcfc;
+    color: #000;
+    box-shadow: 1px 1px 3px #535151;
+
+}
+
+.btn span {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+}
+
+.btn.couleur-1 {
+    background: linear-gradient(blue, pink);
+    border-radius: 10px 100px / 120px;
+}
+
+.btn.couleur-2 {
+    background: linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93));
+    border-radius: 100px 10px / 120px;
+}
+
+.btn.couleur-3 {
+    background: linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147));
+    border-radius: 100px 10px / 120px;
+}
+
+.btn.couleur-4 {
+    background: linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131));
+    border-radius: 10px 100px / 120px;
+}
+/* Colour picker buttons end */

@@ -179,3 +179,20 @@ document.onclick = (event) => {
         leftSection.classList.add('small');
     }
 }
+
+// Colour picker buttons
+const colourPickerButtons = document.querySelectorAll('#colour-picker-buttons button');
+for (let button of colourPickerButtons)
+{
+    // On click, change the post-it colour
+    button.addEventListener('click', () =>
+    {
+        const colour = button.dataset.color,
+            activePostIt = document.querySelectorAll('.postIt.active, .fullPostIt');
+        for (let postIt of activePostIt)
+        {
+            postIt.dataset.color = colour;
+            postIt.style.background = postIt.dataset.color;
+        }
+    });
+}
