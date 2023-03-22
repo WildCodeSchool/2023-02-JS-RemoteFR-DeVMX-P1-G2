@@ -718,3 +718,23 @@ div>p {
     border-radius: 10px 100px / 120px;
 }
 /* Colour picker buttons end */
+
+/* Delete post-it */
+.btn-garbage {
+    border: none;
+    margin: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.btn-garbage img {
+    border-radius: 50%;
+}
+
+.btn-garbage:hover img {
+    box-shadow: 1px 1px 3px #535151;
+}
+/* Delete post-it end */
