@@ -1,9 +1,32 @@
 // HEADER JS --- START
+
 document.getElementById("toggle").addEventListener("click", function () {
     document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
 });
+
 // HEADER JS --- START
+
+
+// OPEN POST-IT FULL SCREEN MOBILE --- START
+
+function openPostIt() {
+    const postIt = document.getElementById('postIt active');
+    const application = document.querySelector('.application');
+    if (postIt.style.display === 'block') {
+        postIt.style.display = 'none';
+        application.style = '';
+    } else {
+        postIt.style.display = 'block';
+        application.style.display = 'none';
+    }
+}
+
+// OPEN POST-IT FULL SCREEN MOBILE --- END
+
+
+
 // FOOTER JS --- START
+
 function openFormContact() {
     const form = document.getElementById('formContact');
     const application = document.querySelector('.application');
@@ -15,6 +38,7 @@ function openFormContact() {
         application.style.display = 'none';
     }
 }
+
 // FOOTER JS --- END
 
 
@@ -138,7 +162,7 @@ if (contact)
             if (!node.value || node.value.match(/^\s+$/m) !== null) emptyFields.set(node, 'Le champ doit être rempli.');
             
             // An e-mail address is of a certain type, so it has to match the regexp
-            if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="en">mail</span> n’est pas correctement renseignée.');
+            if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="fr">mail</span> n’est pas correctement renseignée.');
         });
 
         // At least one field is empty
@@ -170,7 +194,7 @@ if (contact)
     });
 }
  
-
+// OPEN POST-IT --- START
 document.onclick = (event) => {
     const rightSection = document.querySelector(".fullPostIt");
     const leftSection = document.querySelector(".postItSection");
@@ -179,3 +203,5 @@ document.onclick = (event) => {
         leftSection.classList.add('small');
     }
 }
+
+// OPEN POST-IT --- END

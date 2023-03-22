@@ -345,7 +345,7 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
     <main>
         <section class="application">
             <div class="postItSection">
-                <div class="postIt active">
+                <div class="postIt active" onclick="openPostIt()">
                     <h1>Click me</h1>
                     <p>1 t&acirc;che</p>
                 </div>
@@ -358,6 +358,29 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
             </div>
             <div class="fullPostIt hide"></div>
         </section>
+    
+        
+        <!-- Begin contact form -->
+        <form class="contact" id="formContact" method="post" action="./">
+            <h2>Contact</h2>
+            <p>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" required>
+            </p>
+            <p>
+                <label for="email" lang="en">Mail</label>
+                <input id="email" name="email" type="email" required>
+            </p>
+            <p>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" cols="80" rows="5" required></textarea>
+            </p>
+            <p >
+                <input type="submit" value="Envoyer" formnovalidate>
+            </p>
+        </form>
+        <!-- End contact form -->
+    
     </main>
 
 
@@ -369,26 +392,6 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
                 <span class="textBtnContact">Contactez-nous</span>
             </button>
 
-                <!-- Begin contact form -->
-            <form class="contact" id="formContact" method="post" action="./">
-                <h2>Contact</h2>
-                <p>
-                    <label for="name">Nom</label>
-                    <input id="name" name="name" type="text" required>
-                </p>
-                <p>
-                    <label for="email" lang="en">Mail</label>
-                    <input id="email" name="email" type="email" required>
-                </p>
-                <p>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" cols="80" rows="5" required></textarea>
-                </p>
-                <p>
-                    <input type="submit" value="Envoyer" formnovalidate>
-                </p>
-            </form>
-            <!-- End contact form -->
 
         </section>
 
