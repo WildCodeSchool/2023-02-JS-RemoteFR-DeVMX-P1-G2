@@ -1,12 +1,44 @@
+// HEADER JS --- START
+
+document.getElementById("toggle").addEventListener("click", function () {
+    document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
+});
+
+// HEADER JS --- START
+
+
+// OPEN POST-IT FULL SCREEN MOBILE --- START
+
+// function openPostIt() {
+//     const postIt = document.getElementById('postIt active');
+//     const application = document.querySelector('.application');
+//     if (postIt.style.display === 'block') {
+//         postIt.style.display = 'none';
+//         application.style = '';
+//     } else {
+//         postIt.style.display = 'block';
+//         application.style.display = 'none';
+//     }
+// }
+
+// OPEN POST-IT FULL SCREEN MOBILE --- END
+
+
+
 // FOOTER JS --- START
+
 function openFormContact() {
     const form = document.getElementById('formContact');
+    const application = document.querySelector('.application');
     if (form.style.display === 'block') {
         form.style.display = 'none';
+        application.style = '';
     } else {
         form.style.display = 'block';
+        application.style.display = 'none';
     }
 }
+
 // FOOTER JS --- END
 
 
@@ -93,67 +125,100 @@ function removeTask(group, task)
 }
 
 // Checking the contact form
+const contact = document.querySelector('.contact');
 
+if (contact)
+{
+    contact.addEventListener('submit', e =>
+    {
+        // Just to prevent the form to behave normally when submitted
+        e.preventDefault();
 
-// const contact = document.querySelector('.contact');
-
-// if (contact)
-// {
-//     contact.addEventListener('submit', e =>
-//     {
-//         // Just to prevent the form to behave normally when submitted
-//         e.preventDefault();
-
-//         // A function to remove all previous error messages, if present
-//         function removeErrorMessages(element)
-//         {
-//             let label = element.querySelectorAll('label');
-//             label.forEach(node =>
-//             {
-//                 let spanError = node.querySelector('.error');
-//                 if (spanError) node.removeChild(spanError);
-//             });
-//         }
+        // A function to remove all previous error messages and `aria-invalid="true"` attributes, if present
+        function removeErrorMessages(element)
+        {
+            let label = element.querySelectorAll('label');
+            label.forEach(node =>
+            {
+                let spanError = node.querySelector('.error'),
+                    field = node.nextSibling;
+                while (field.nodeName === '#text')
+                {
+                    field = field.nextSibling; // To ensure the sibling in question is really an `input` or `textarea` element, not a text node
+                }
+                if (spanError) node.removeChild(spanError);
+                field.removeAttribute('aria-invalid');
+            });
+        }
             
-//         // Remove all previous error messages, if present
-//         removeErrorMessages(contact);
+        // Remove all previous error messages and `aria-invalid="true"` attributes, if present
+        removeErrorMessages(contact);
 
-//         // Let’s check the fields to see if at least one is empty (to fill with spaces only is not to fill)
-//         let aFields = contact.querySelectorAll('[required]'),
-//             emptyFields = new Map();
-//         aFields.forEach(node =>
-//         {
-//             if (!node.value || node.value.match(/^\s+$/m) !== null) emptyFields.set(node, 'Le champ doit être rempli.');
+        // Let’s check the fields to see if at least one is empty (to fill with spaces only is not to fill)
+        let aFields = contact.querySelectorAll('[required]'),
+            emptyFields = new Map();
+        aFields.forEach(node =>
+        {
+            if (!node.value || node.value.match(/^\s+$/m) !== null) emptyFields.set(node, 'Le champ doit être rempli.');
             
-//             // An e-mail address is of a certain type, so it has to match the regexp
-//             if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="en">mail</span> n’est pas correctement renseignée.');
-//         });
+            // An e-mail address is of a certain type, so it has to match the regexp
+            if (node.type == 'email' && !node.value.match(/^[-_.0-9a-z]+@[-.0-9a-z]+\.[a-z]+$/i)) emptyFields.set(node, 'L’adresse <span lang="fr">mail</span> n’est pas correctement renseignée.');
+        });
 
-//         // At least one field is empty
-//         if (emptyFields.size > 0)
-//         {
-//             for (let [node, errorMessage] of emptyFields)
-//             {
-//                 let label = node.parentNode.getElementsByTagName('label')[0],
-//                     span = document.createElement('span');
-//                     span.className = 'error';
-//                 span.innerHTML = errorMessage;
-//                 label.appendChild(span);
-//             }
-//         }
+        // At least one field is empty
+        if (emptyFields.size > 0)
+        {
+            for (let [node, errorMessage] of emptyFields)
+            {
+                let label = node.parentNode.getElementsByTagName('label')[0],
+                    span = document.createElement('span');
+                    span.className = 'error';
+                node.setAttribute('aria-invalid', 'true');
+                span.innerHTML = errorMessage;
+                label.appendChild(span);
+            }
+        }
 
-//         // All fields are filled
-//         else
-//         {
-//             // Remove all previous error messages, if present
-//             removeErrorMessages(contact);
+        // All fields are filled
+        else
+        {
+            // Remove all previous error messages, if present
+            removeErrorMessages(contact);
 
-//             // Confirm the e-mail sending
-//             console.log('Votre message a été envoyé et sera traité dans les plus brefs délais.');
+            // Confirm the e-mail sending
+            console.log('Votre message a été envoyé et sera traité dans les plus brefs délais.');
 
-//             // And the great reset of the form (no, this is not a conspiracy theory :-D )
-//             contact.reset();
-//         }
-//     });
-// }
+            // And the great reset of the form (no, this is not a conspiracy theory :-D )
+            contact.reset();
+        }
+    });
+}
  
+// OPEN POST-IT --- START
+document.onclick = (event) => {
+    const rightSection = document.querySelector(".fullPostIt");
+    const leftSection = document.querySelector(".postItSection");
+    if (window.innerWidth > 600 && (event.target.parentElement.classList.contains("postIt") || event.target.classList.contains("postIt"))) {
+        rightSection.classList.add('visible');
+        leftSection.classList.add('small');
+    }
+}
+
+// OPEN POST-IT --- END
+
+// Colour picker buttons
+const colourPickerButtons = document.querySelectorAll('#colour-picker-buttons button');
+for (let button of colourPickerButtons)
+{
+    // On click, change the post-it colour
+    button.addEventListener('click', () =>
+    {
+        const colour = button.dataset.color,
+            activePostIt = document.querySelectorAll('.postIt.active, .fullPostIt');
+        for (let postIt of activePostIt)
+        {
+            postIt.dataset.color = colour;
+            postIt.style.background = postIt.dataset.color;
+        }
+    });
+}
