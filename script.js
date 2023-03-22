@@ -43,6 +43,17 @@ function addGroup(group, settings = '#4da4d6')
     return (tasks.get('settings').has(group) && tasks.get('groups').has(group))? true: 'Le regroupement de tâches n’a pas pu être créé.';
 }
 
+// Update group
+function updateGroup(group, background)
+{
+    // Update the settings of the concerned group, if present
+    if (!tasks.get('settings').has(group)) return 'Le regroupement que vous avez demandé à mettre à jour n’a pas été trouvé.';
+    tasks.get('settings').set(group, background);
+
+    // Return true
+    return true;
+}
+
 // Remove group
 function removeGroup(group)
 {
@@ -179,3 +190,38 @@ document.onclick = (event) => {
         leftSection.classList.add('small');
     }
 }
+
+// Colour picker buttons
+const colourPickerButtons = document.querySelectorAll('#colour-picker-buttons button');
+for (let button of colourPickerButtons)
+{
+    // On click, change the post-it colour
+    button.addEventListener('click', () =>
+    {
+        const colour = button.dataset.color,
+            activePostIt = document.querySelectorAll('.postIt.active, .fullPostIt'),
+            activePostItTitle = document.querySelector('.postIt.active h1').innerText;
+        for (let postIt of activePostIt)
+        {
+            postIt.dataset.color = colour;
+            postIt.style.background = postIt.dataset.color;
+            updateGroup(activePostItTitle, postIt.dataset.color);
+        }
+    });
+}
+
+// Delete post-it
+const deletePostItButton = document.querySelector('.fullPostIt .btn-garbage');
+// On click, delete the post-it
+deletePostItButton.addEventListener('click', () =>
+{
+    const activePostIt = document.querySelector('.postIt.active'),
+        fullPostIt = document.querySelector('.fullPostIt'),
+        activePostItTitle = activePostIt.querySelector('h1').innerText;
+    removeGroup(activePostItTitle);
+
+    // Remove the active post-it from the list and make the full post-it invisible
+    activePostIt.remove();
+    fullPostIt.classList.remove('visible');
+    document.querySelector('.postItSection').classList.remove('small');
+});
