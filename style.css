@@ -466,8 +466,7 @@ button .textBtnContact {
 }
 
 #formContact {
-    display: flex;
-    flex-direction: column;
+    display: none;
     position: fixed;
     width: 90vw;
     height: 75vh;
@@ -484,19 +483,19 @@ button .textBtnContact {
 
 
 .btnAddTask {
-    margin-top: 10px;
+    margin-top: 39vh;
     width: 100px;
     height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    position: absolute;
     font-size: 28px;
     border-radius: 8px;
     background: #1f6c99;
     color: whitesmoke;
     border: 1px solid gray;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%);
-    position: absolute;
 }
 
 button .textBtnAddTask {
@@ -505,7 +504,20 @@ button .textBtnAddTask {
 
 @media screen and (min-width: 600px) {
     .btnAddTask {
-        display: none;
+        margin-top: initial;
+        width: initial;
+        height: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        position: initial;
+        font-size: 6rem;
+        border-radius: 8px;
+        background: rgba(128, 128, 128, 0.20);
+        color: whitesmoke;
+        text-align: center;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
     }
 
     button .textBtnAddTask {
@@ -528,6 +540,7 @@ button .textBtnAddTask {
 }
 
 /* FOOTER DESIGN --- END */
+
 
 img,
 video {
