@@ -340,24 +340,61 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
         <input type="checkbox" id="toggle">
 
     </header>
-    
+
 
     <main>
-        <section class="application">
-            <div class="postItSection">
-                <div class="postIt active">
-                    <h1>Click me</h1>
-                    <p>1 t&acirc;che</p>
+        <section class="addTask">
+        
+            <section class="application">
+                <div class="postItSection">
+        
+                    <button class="btnAddTask" onclick="">+</button>
+    
+                    <div class="postIt active">
+                        <h1>Travail</h1>
+                        <p>Rendre le projet <br>
+                            Faire ses quêtes</p>
+                    </div>
+                    <!-- <button class="add-note postIt" type="button">+</button> -->
                 </div>
-                <div class="postIt"></div>
-                <div class="postIt"></div>
-                <div class="postIt"></div>
-                <div class="postIt"></div>
-                <div class="postIt"></div>
-                <!-- <button class="add-note postIt" type="button">+</button> -->
-            </div>
-            <div class="fullPostIt hide"></div>
+                <div class="fullPostIt hide">
+                    <!-- Colour picker buttons -->
+                    <div id="colour-picker-buttons" class="btn-container">
+                        <button class="btn couleur-1" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(blue, pink)"><span>Choisir cette couleur pour le post-it</span></button>
+                        <button class="btn couleur-2" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93))"><span>Choisir cette couleur pour le post-it</span></button>
+                        <button class="btn couleur-3" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147))"><span>Choisir cette couleur pour le post-it</span></button>
+                        <button class="btn couleur-4" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131))"><span>Choisir cette couleur pour le post-it</span></button>
+                    </div>
+                    <!-- Colour picker buttons end -->
+                    <!-- Delete post-it -->
+                    <button class="btn-garbage" type="button"><img src="assets/garbage.png"></button>
+                    <!-- Delete post-it end -->
+                </div>
+            </section>
         </section>
+    
+        
+        <!-- Begin contact form -->
+        <form class="contact" id="formContact" method="post" action="./">
+            <h2>Contact</h2>
+            <p>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" required>
+            </p>
+            <p>
+                <label for="email" lang="en">Mail</label>
+                <input id="email" name="email" type="email" required>
+            </p>
+            <p>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" cols="80" rows="5" required></textarea>
+            </p>
+            <p >
+                <input type="submit" value="Envoyer" formnovalidate>
+            </p>
+        </form>
+        <!-- End contact form -->
+    
     </main>
 
 
@@ -368,37 +405,6 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
                 &#9993;
                 <span class="textBtnContact">Contactez-nous</span>
             </button>
-
-                <!-- Begin contact form -->
-            <form class="contact" id="formContact" method="post" action="./">
-                <h2>Contact</h2>
-                <p>
-                    <label for="name">Nom</label>
-                    <input id="name" name="name" type="text" required>
-                </p>
-                <p>
-                    <label for="email" lang="en">Mail</label>
-                    <input id="email" name="email" type="email" required>
-                </p>
-                <p>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" cols="80" rows="5" required></textarea>
-                </p>
-                <p>
-                    <input type="submit" value="Envoyer" formnovalidate>
-                </p>
-            </form>
-            <!-- End contact form -->
-
-        </section>
-
-        <section class="addTask">
-
-            <button class="btnAddTask" onclick="">
-                +
-                <span class="textBtnAddTask">Créer une liste</span>
-            </button>
-
         </section>
 
 
