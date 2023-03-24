@@ -185,9 +185,8 @@ const displayPostIt = (event) =>
             leftSection.classList.add('small');
         }
         else {}
-
-    createCloseBtn(existingPosts[i]);
-}}
+    }
+}
 
 for (let i=0; i < existingPosts.length; i++) {
     existingPosts[i].addEventListener('click', displayPostIt);
