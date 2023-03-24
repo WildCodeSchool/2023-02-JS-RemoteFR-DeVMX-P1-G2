@@ -203,6 +203,7 @@ for (let i=0; i < existingPosts.length; i++) {
             leftSection.classList.add('small');
         }
         else {}
+    createCloseBtn(existingPosts[i]);
 }}
 
 // close post it
@@ -223,22 +224,9 @@ newTask.addEventListener("keydown", (e) => {
     }
 });
 
-//const taskForm = document.querySelector("#taskForm");
-// addTaskBtn.onclick = (e) => {
-//     e.preventDefault();
-//     if (newTask.value) {
-//         const text = <li class="item">
-//             <i class="co fa fa-circle-thin" job="complete"></i>
-//             <p class="text"> ${toDo}</p>
-//             <i class="de fa fa-trash-o" job="delete"></i>
-//         </li>
-//         const position = "beforeend";
-//         list.insertAdjacentHTML(position, text);
-//     }
-// }
 addTaskBtn.onclick = (e) => {
     e.preventDefault();
-    if (newTask.value) {
+    if (newTask.value != "") {
         const taskList = document.querySelector(".taskList")
         const li = document.createElement("li");
         const input = document.createElement("input");
@@ -246,23 +234,25 @@ addTaskBtn.onclick = (e) => {
         const label = document.createElement("label");
         label.classList.add("task");
         label.innerHTML = newTask.value;
-        input.appendChild(label);
         li.appendChild(input);
+        li.appendChild(label);
         taskList.appendChild(li);
-        list.insertAdjacentHTML("beforeend", li);
+        //li.insertAdjacentHTML("beforeend", li);
         newTask.value = "";
+        createCloseBtn();
     }
 }
 
 // Create a "close" button and append it to each list item
-let li = document.getElementsByTagName("li");
-for (let i = 0; i < li.length; i++) {
-  let closeTask = document.createElement("button");
-  let txt = document.createTextNode("\u00D7");
-  closeTask.className = "close";
-  closeTask.appendChild(txt);
-  li[i].appendChild(closeTask);
-}
+createCloseBtn = () => {
+    let li = document.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+    const closeTask = document.createElement("button");
+    const txt = document.createTextNode("\u00D7");
+    closeTask.className = "close";
+    closeTask.appendChild(txt);
+    li[i].appendChild(closeTask);
+}}
 
 // Click on a close button to hide the current list item
 const close = document.getElementsByClassName("close");
