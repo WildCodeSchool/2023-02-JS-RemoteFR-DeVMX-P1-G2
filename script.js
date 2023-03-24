@@ -223,10 +223,10 @@ newTask.addEventListener("keydown", (e) => {
         addTaskBtn.click();
     }
 });
-
+//-----------------------------------------------
 addTaskBtn.onclick = (e) => {
     e.preventDefault();
-    if (newTask.value != "") {
+    if (newTask.value) {
         const taskList = document.querySelector(".taskList")
         const li = document.createElement("li");
         const input = document.createElement("input");
@@ -236,30 +236,23 @@ addTaskBtn.onclick = (e) => {
         label.innerHTML = newTask.value;
         li.appendChild(input);
         li.appendChild(label);
-        taskList.appendChild(li);
-        //li.insertAdjacentHTML("beforeend", li);
+
+        let closeTask = document.createElement("button");
+        let txt = document.createTextNode("\u00D7");
+        closeTask.className = "close";
+        closeTask.appendChild(txt);
+        li.appendChild(closeTask);
+
+        taskList.insertBefore(li, taskList.firstChild);
         newTask.value = "";
-        createCloseBtn();
+        
+        const close = document.getElementsByClassName("close");
+        for (let i = 0; i < close.length; i++) {
+          close[i].onclick = () => {
+            close[i].parentElement.style.display = "none";
+          }
+        }
     }
-}
-
-// Create a "close" button and append it to each list item
-createCloseBtn = () => {
-    let li = document.getElementsByTagName("li");
-    for (let i = 0; i < li.length; i++) {
-    const closeTask = document.createElement("button");
-    const txt = document.createTextNode("\u00D7");
-    closeTask.className = "close";
-    closeTask.appendChild(txt);
-    li[i].appendChild(closeTask);
-}}
-
-// Click on a close button to hide the current list item
-const close = document.getElementsByClassName("close");
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = () => {
-    close[i].parentElement.style.display = "none";
-  }
 }
 
 // Add a "checked" symbol when clicking on a list item
