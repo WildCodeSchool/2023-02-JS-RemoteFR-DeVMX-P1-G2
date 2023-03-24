@@ -1,0 +1,977 @@
+@charset "utf-8";
+
+/**
+ * @site To Do Wild
+ * @author Victor Brito, Anthony Lasternas, Amani Nefzi, Rudy Rano and Romaric Yi
+ * 
+ * Reset / normalize CSS inspired from Corinne Durrmeyer’s normalize.css
+ * @see https://github.com/inseo/bpi-normalize/blob/master/normalize.css
+ */
+
+/** @section Reset / normalize */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+ul {
+    list-style: none
+}
+
+button,
+input,
+select {
+    margin: 0
+}
+
+html {
+    box-sizing: border-box
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+pre,
+blockquote,
+figure,
+figcaption,
+form,
+fieldset,
+legend,
+input,
+select,
+textarea,
+button {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    /* font-size: 62.5%; */
+    /**
+     * Prevent text resizing when the terminal orientation changes (user zoom is preserved)
+     * @bugfix @affected Safari iOS
+     */
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre {
+    font-size: inherit;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+fieldset,
+legend,
+img,
+abbr,
+acronym {
+    border: none;
+}
+
+legend {
+    white-space: normal;
+}
+
+input,
+select,
+textarea,
+button,
+img {
+    vertical-align: middle;
+}
+
+input,
+select,
+textarea,
+button,
+code,
+kbd,
+samp,
+var {
+    font-size: inherit;
+}
+
+input,
+select,
+textarea,
+button {
+    font-family: inherit;
+    border: 1px solid;
+}
+
+/**
+ * Rounded corners removal
+ * @css-for Safari iOS
+ */
+input,
+select,
+textarea {
+    border-radius: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    border: none;
+}
+
+input[type="search"] {
+    /**
+     * Field default appearance removal
+     * @css-for Safari*/
+     
+    appearance: none;
+}
+
+/**
+ * Default appearance removal on mobile OSs
+ * @css-for Safari iOS
+ */
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+}
+
+/**
+ * Removal of the opacity as applied by default (to enhance the contrast)
+ * @css-for Firefox
+ */
+input::placeholder {
+    opacity: 1;
+}
+
+input[disabled],
+button[disabled] {
+    cursor: default;
+}
+
+button {
+    background: transparent;
+}
+
+button:focus {
+    /**
+     * Outline added
+     * @css-for Firefox
+     */
+    outline: thin dotted;
+}
+
+img,
+object,
+audio,
+video,
+embed,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/**
+  * Removal of the text decoration
+  * @css-for Firefox
+  */
+abbr[title] {
+    text-decoration: none;
+}
+
+::selection {
+    color: black;
+    background-color: lightblue;
+    text-shadow: none
+}
+
+/** @section Reset / normalize for printing */
+
+@media print {
+    * {
+        color: black !important;
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+    }
+
+    img,
+    object,
+    audio,
+    video,
+    embed,
+    svg {
+        page-break-inside: avoid;
+    }
+}
+
+/** @section Font loading */
+
+@font-face {
+    src: url("fonts/Roboto-Regular.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Roboto-Italic.woff2");
+    font-family: Roboto;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Roboto-Bold.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Roboto-BoldItalic.woff2");
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Montserrat-Regular.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Montserrat-Italic.woff2");
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Montserrat-Bold.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("fonts/Montserrat-BoldItalic.woff2");
+    font-family: Montserrat;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+/** @section General layout */
+html {
+    position: fixed;
+}
+
+body {
+    background: linear-gradient(150deg, rgba(188, 200, 247, 1) 0%, rgba(227, 249, 251, 1) 29%, rgba(231, 246, 251, 1) 69%) no-repeat;
+    width: 100vw;
+
+}
+
+.dark-mode {
+    color: white;
+    background-image: linear-gradient(60deg, rgba(18, 26, 64, 1) 0%, rgba(21, 87, 140, 1) 50%, rgba(52, 147, 199, 1) 100%);
+}
+
+main {
+    margin-top: 60px;
+    /* ajustez cette valeur pour correspondre à la hauteur de votre header */
+    margin-bottom: 80px;
+    /* ajustez cette valeur pour correspondre à la hauteur de votre footer */
+    height: calc(100vh - 140px);
+    /* calculez la hauteur de la section main en soustrayant la hauteur du header et du footer */
+    overflow-y: auto;
+    /* permet uniquement à la section main de défiler */
+}
+
+@media (min-width: 600px) {
+    main {
+        margin-top: 100px;
+        height: calc(100vh - 180px);
+    }
+}
+
+/** @section Contact */
+.contact,
+.contact input,
+.contact textarea {
+    border-radius: 0.5rem;
+}
+
+.contact {
+    padding: 1rem;
+    border: 1px solid gray;
+}
+
+section>form>h2 {
+    font-size: 3rem;
+}
+
+.contact p {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem;
+}
+
+.contact p:last-child {
+    margin: 0;
+}
+
+.contact input,
+.contact textarea {
+    background: #d9d9d9;
+    border: none;
+}
+
+textarea #message {
+    height: 80%;
+}
+
+.contact input[type="submit"] {
+    font-weight: bold;
+    color: white;
+    background: #1f6c99;
+}
+
+.contact .error {
+    font-size: 0.8rem;
+    color: red;
+    margin-left: 1rem;
+}
+
+body {
+
+    margin: 0px;
+
+    background: linear-gradient(150deg, rgba(188, 200, 247, 1) 0%, rgba(227, 249, 251, 1) 29%, rgba(231, 246, 251, 1) 69%)no-repeat;
+    min-height: 100vh;
+
+}
+
+.dark-theme {
+
+
+
+    background: linear-gradient(60deg, rgba(18, 26, 64, 1) 0%, rgba(21, 87, 140, 1) 50%, rgba(52, 147, 199, 1) 100%)no-repeat;
+    min-height: 100vh;
+
+}
+
+/* HEADER DESIGN --- START */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+#toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 30px;
+    width: 58px;
+    background-color: rgb(46, 105, 214);
+    position: absolute;
+    right: 1rem;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    top: 1rem;
+}
+
+svg.logo {
+    width: 30vw;
+    min-width: 180px;
+    max-width: 400px;
+    height: auto;
+    fill: #1f6c99;
+}
+
+.dark-theme svg.logo {
+    fill: #8acaef;
+}
+
+#toggle:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    height: 30px;
+    left: 1px;
+    width: 31px;
+    background-image: url("assets/soleil2.png");
+    transition: all .3s;
+    border-radius: 50%;
+}
+
+.dark-theme #toggle {
+    background-color: rgb(21, 87, 140);
+}
+
+.dark-theme #toggle:after {
+    background-color: transparent;
+    background-image: url("assets/lune5.png");
+    top: 0;
+    left: 30px;
+}
+
+
+/* HEADER DESIGN --- END */
+
+
+/* FOOTER DESIGN --- START */
+footer {
+    position: fixed;
+    justify-content: space-between;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+}
+
+.btnContact {
+    margin: 5px 0 0 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background: transparent;
+    color: gray;
+}
+
+.dark-theme .btnContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+button .textBtnContact {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnContact {
+        margin-top: 15px;
+        width: 200px;
+        height: auto;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    button .textBtnContact {
+        display: initial;
+    }
+}
+
+#formContact {
+    display: none;
+    position: fixed;
+    width: 90vw;
+    height: 75vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: gray;
+}
+
+.dark-theme #formContact {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+
+
+.btnAddTask {
+    width: 100px;
+    height: 40px;
+    bottom: 7.5%;
+    left: 50%;
+    transform: translate(-50px, -20px);
+    position: absolute;
+    font-size: 28px;
+    border-radius: 8px;
+    background: #1f6c99;
+    color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+button .textBtnAddTask {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .btnAddTask {
+        margin-top: initial;
+        width: initial;
+        height: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        position: initial;
+        font-size: 6rem;
+        border-radius: 8px;
+        background: rgba(128, 128, 128, 0.20);
+        color: whitesmoke;
+        text-align: center;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    button .textBtnAddTask {
+        display: initial;
+    }
+}
+
+#formAddTask {
+    display: none;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* FOOTER DESIGN --- END */
+
+
+img,
+video {
+    height: auto;
+    max-width: 100%
+}
+
+iframe {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+:root {
+    --postIt-Mobile: 42vw;
+    --max-width-postIt: 259px;
+    --full-postIt: 35%;
+    --postIt-section: 60%;
+    /* colors */
+    --light-blue: #4DA4D6;
+    --medium-blue: #3984AF;
+    --dark-blue: #1F6C99;
+    --purple: #7B5CE4;
+    /* hover colors */
+    --light-blue-h: #349bd6;
+    --medium-blue-h: #227db1;
+    --dark-blue-h: #0d679b;
+    --purple-h: #6c48e4;
+    /* button colors */
+    --btn-blue: #1F6C99;
+    --btn-purple: #5427e7;
+    --btn-blue-h: #0f5279;
+    --btn-purple-h: #4012d8;
+
+}
+
+.application {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.postItSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(15vw, 130px, 100%/7)), 1fr));
+    gap: 20px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.postIt {
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 8px 0px #9e9e9e;
+    text-align: left;
+    padding: 10px 8px;
+    color: white;
+    aspect-ratio: 1;
+}
+
+.postIt:not(div:first-child) {
+    background-color: #4DA4D6;
+}
+
+.postIt:first-child {
+    background: #D9D9D9;
+}
+
+.add-note {
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
+    box-shadow: 1px 3px 8px 0px #9e9e9e;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 120px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+
+
+@media (max-width: 600px) {
+    .add-note {
+        display: none;
+    }
+}
+
+.add-note:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+div>h1 {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    font-weight: 700;
+    white-space: wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+div>p {
+    font-size: clamp(0.7rem, 5vw, 1rem);
+    padding: 15px 10px;
+}
+.hide { display: none;}
+.visible {
+    width: var(--full-postIt);
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    display: block; 
+    height: 75vh;
+}
+
+@media screen and (max-width: 600px) {
+    .visible {
+        width: 85vw;
+        height: 75vh;
+    }
+}
+
+.small {
+    width: var(--postIt-section);
+}
+
+/* ------ full post it style ------ */
+
+.fullPostIt {
+    color: white;
+    position: relative;
+}
+.fullPostIt h1 {
+    font-size: 1.6rem;
+    margin: 15px 0 20px 15px;
+}
+.fullPostIt>.closePostIt {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    height: 25px;
+    border: none;
+    color: white;
+    line-height: 0;
+    font-size: 2.5rem;
+}
+.fullPostIt>.closePostIt:hover {
+    background-color: var(--dark-blue-h);
+}
+
+
+.fullPostIt>form {
+    display:flex;
+    justify-content: space-between;
+    padding:0 20px 10px;
+    margin-bottom: 20px;
+
+}
+
+.fullPostIt>form>input {
+    border-radius: 8px;
+    padding: 0 10px;
+    background-color: var(--dark-blue-h);
+    color: white;
+    border-color: white;
+    border: none;
+    width: 75%;
+}
+.fullPostIt>form>input::placeholder {
+    color: white;
+}
+
+.fullPostIt>form>button {
+    background-color: var(---blue-h);
+    border-radius: 3px;
+    font-size: 1.7rem;
+    padding: 0 10px;
+    color: white;
+    height: 30px;
+    line-height: 0; /* remove space before the text */
+}
+.fullPostIt>form>button:hover {
+    background-color: var(--dark-blue-h);
+}
+
+.fullPostIt>ul>li>input {
+    width: 17px;
+    height: 17px;
+    background-color: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style-type: none;
+    transition: 0.2s;
+    user-select: none; /* make the list items unselectable */
+    margin: 5px 15px;
+    border: 1px solid white;
+    vertical-align: middle;
+    }
+
+.fullPostIt>ul>li {
+    font-size: 1.1rem;
+    padding: 10px 8px 10px 20px;
+    position: relative; 
+}
+
+.fullPostIt>ul>li:hover {
+    background: #196b9b;
+}
+.fullPostIt>ul>li>input.checked {
+    text-decoration: line-through;
+}
+  
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 9px 16px;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    height: inherit;
+  }
+  
+  .close:hover {
+    background-color: var(--btn-blue);
+  }
+
+@media screen and (min-width:600px) {
+
+    section>div>h1 {
+        -webkit-line-clamp: 1;
+    }
+
+}
+
+/* Colour picker buttons */
+
+.fullPostIt.hide.visible {
+    position: relative;
+}
+.btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2px;
+    border: none;
+
+    margin: 8px;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.hide:not(.visible) .btn-container {
+    display: none;
+}
+
+.btn:hover {
+    background-color: #fcfcfc;
+    color: #000;
+    box-shadow: 1px 1px 3px #535151;
+
+}
+
+.btn span {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+}
+
+.btn.couleur-1 {
+    background: linear-gradient(blue, pink);
+    border-radius: 10px 100px / 120px;
+}
+
+.btn.couleur-2 {
+    background: linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93));
+    border-radius: 100px 10px / 120px;
+}
+
+.btn.couleur-3 {
+    background: linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147));
+    border-radius: 100px 10px / 120px;
+}
+
+.btn.couleur-4 {
+    background: linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131));
+    border-radius: 10px 100px / 120px;
+}
+/* Colour picker buttons end */
+
+/* Delete post-it */
+.btn-garbage {
+    border: none;
+    margin: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.btn-garbage img {
+    border-radius: 50%;
+}
+
+.btn-garbage:hover img {
+    box-shadow: 1px 1px 3px #535151;
+}
+/* Delete post-it end */
