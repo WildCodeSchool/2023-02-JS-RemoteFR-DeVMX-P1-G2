@@ -7,24 +7,6 @@ document.getElementById("toggle").addEventListener("click", function () {
 // HEADER JS --- START
 
 
-// OPEN POST-IT FULL SCREEN MOBILE --- START
-
-// function openPostIt() {
-//     const postIt = document.getElementById('postIt active');
-//     const application = document.querySelector('.application');
-//     if (postIt.style.display === 'block') {
-//         postIt.style.display = 'none';
-//         application.style = '';
-//     } else {
-//         postIt.style.display = 'block';
-//         application.style.display = 'none';
-//     }
-// }
-
-// OPEN POST-IT FULL SCREEN MOBILE --- END
-
-
-
 // FOOTER JS --- START
 
 function openFormContact() {
@@ -48,15 +30,12 @@ tasks.set('settings', new Map());
 tasks.set('groups', new Map());
 
 // Add group
-function addGroup(group, settings = '#4da4d6') {
+function addGroup(group, settings = ['white', '#4da4d6']) {
     // Clean the group name by removing all the whitespaces at the start and the end of the string
     group = group.trim();
 
     // The group name must not be empty
     if (!group) return 'Le regroupement doit comporter au moins un mot.';
-
-    // If the settings are not valid (i.e. a CSS hexadecimal colour code), use the default ones
-    if (!settings.match(/#[0-9a-f]{6}/i)) settings = '#4da4d6';
 
     // Create the group with the settings
     tasks.get('settings').set(group, settings);
@@ -67,11 +46,11 @@ function addGroup(group, settings = '#4da4d6') {
 }
 
 // Update group
-function updateGroup(group, background)
+function updateGroup(group, color, background)
 {
     // Update the settings of the concerned group, if present
     if (!tasks.get('settings').has(group)) return 'Le regroupement que vous avez demandé à mettre à jour n’a pas été trouvé.';
-    tasks.get('settings').set(group, background);
+    tasks.get('settings').set(group, [color, background]);
 
     // Return true
     return true;
@@ -192,18 +171,27 @@ if (contact) {
 }
  
 // click on a post it to display it at the right on full size
-const existingPosts = document.querySelectorAll(".active");
+const existingPosts = document.querySelectorAll(".postIt");
 const rightSection = document.querySelector(".fullPostIt");
 const leftSection = document.querySelector(".postItSection");
 
-for (let i=0; i < existingPosts.length; i++) {
-    existingPosts[i].onclick = (event) => {
+const displayPostIt = (event) =>
+{
+    const target = event.target.closest('.postIt');
+    if (target)
+    {
         if (window.innerWidth > 600) {// && (event.target.parentElement.classList.contains("postIt") || event.target.classList.contains("postIt"))) {
             rightSection.classList.add('visible');
             leftSection.classList.add('small');
         }
         else {}
+
+    createCloseBtn(existingPosts[i]);
 }}
+
+for (let i=0; i < existingPosts.length; i++) {
+    existingPosts[i].addEventListener('click', displayPostIt);
+}
 
 // close post it
 const closePostIt = document.querySelector(".closePostIt");
@@ -222,40 +210,36 @@ newTask.addEventListener("keydown", (e) => {
         addTaskBtn.click();
     }
 });
-
-//const taskForm = document.querySelector("#taskForm");
+//-----------------------------------------------
 addTaskBtn.onclick = (e) => {
     e.preventDefault();
     if (newTask.value) {
         const taskList = document.querySelector(".taskList")
         const li = document.createElement("li");
         const input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
+        input.type = "checkbox";
         const label = document.createElement("label");
-        label.innerHTML = newTask;
-        input.appendChild(label);
+        label.classList.add("task");
+        label.innerHTML = newTask.value;
         li.appendChild(input);
-        taskList.appendChild(li);
+        li.appendChild(label);
+
+        let closeTask = document.createElement("button");
+        let txt = document.createTextNode("\u00D7");
+        closeTask.className = "close";
+        closeTask.appendChild(txt);
+        li.appendChild(closeTask);
+
+        taskList.insertBefore(li, taskList.firstChild);
         newTask.value = "";
+        
+        const close = document.getElementsByClassName("close");
+        for (let i = 0; i < close.length; i++) {
+          close[i].onclick = () => {
+            close[i].parentElement.style.display = "none";
+          }
+        }
     }
-}
-
-// Create a "close" button and append it to each list item
-let li = document.getElementsByTagName("li");
-for (let i = 0; i < li.length; i++) {
-  let closeTask = document.createElement("button");
-  let txt = document.createTextNode("\u00D7");
-  closeTask.className = "close";
-  closeTask.appendChild(txt);
-  li[i].appendChild(closeTask);
-}
-
-// Click on a close button to hide the current list item
-const close = document.getElementsByClassName("close");
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = () => {
-    close[i].parentElement.style.display = "none";
-  }
 }
 
 // Add a "checked" symbol when clicking on a list item
@@ -275,13 +259,16 @@ for (let button of colourPickerButtons)
     button.addEventListener('click', () =>
     {
         const colour = button.dataset.color,
+            background = button.dataset.background,
             activePostIt = document.querySelectorAll('.postIt.active, .fullPostIt'),
             activePostItTitle = document.querySelector('.postIt.active h1').innerText;
         for (let postIt of activePostIt)
         {
             postIt.dataset.color = colour;
-            postIt.style.background = postIt.dataset.color;
-            updateGroup(activePostItTitle, postIt.dataset.color);
+            postIt.dataset.background = background;
+            postIt.style.color = postIt.dataset.color;
+            postIt.style.background = postIt.dataset.background;
+            updateGroup(activePostItTitle, [postIt.dataset.color, postIt.dataset.background]);
         }
     });
 }
@@ -304,6 +291,7 @@ addPostItButton.addEventListener('click', () =>
     const postItSection = document.querySelector('.postItSection'),
         newPostIt = document.createElement('div');
     newPostIt.classList.add('postIt', 'active');
+    newPostIt.addEventListener('click', displayPostIt);
     newPostIt.innerHTML = `<h1>Nouveau post-it</h1>`;
     postItSection.appendChild(newPostIt);
 
