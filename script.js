@@ -185,6 +185,9 @@ const displayPostIt = (event) =>
             leftSection.classList.add('small');
         }
         else {}
+
+    createCloseBtn(existingPosts[i]);
+}}
     }
 }
 
@@ -209,40 +212,36 @@ newTask.addEventListener("keydown", (e) => {
         addTaskBtn.click();
     }
 });
-
-//const taskForm = document.querySelector("#taskForm");
+//-----------------------------------------------
 addTaskBtn.onclick = (e) => {
     e.preventDefault();
     if (newTask.value) {
         const taskList = document.querySelector(".taskList")
         const li = document.createElement("li");
         const input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
+        input.type = "checkbox";
         const label = document.createElement("label");
-        label.innerHTML = newTask;
-        input.appendChild(label);
+        label.classList.add("task");
+        label.innerHTML = newTask.value;
         li.appendChild(input);
-        taskList.appendChild(li);
+        li.appendChild(label);
+
+        let closeTask = document.createElement("button");
+        let txt = document.createTextNode("\u00D7");
+        closeTask.className = "close";
+        closeTask.appendChild(txt);
+        li.appendChild(closeTask);
+
+        taskList.insertBefore(li, taskList.firstChild);
         newTask.value = "";
+        
+        const close = document.getElementsByClassName("close");
+        for (let i = 0; i < close.length; i++) {
+          close[i].onclick = () => {
+            close[i].parentElement.style.display = "none";
+          }
+        }
     }
-}
-
-// Create a "close" button and append it to each list item
-let li = document.getElementsByTagName("li");
-for (let i = 0; i < li.length; i++) {
-  let closeTask = document.createElement("button");
-  let txt = document.createTextNode("\u00D7");
-  closeTask.className = "close";
-  closeTask.appendChild(txt);
-  li[i].appendChild(closeTask);
-}
-
-// Click on a close button to hide the current list item
-const close = document.getElementsByClassName("close");
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = () => {
-    close[i].parentElement.style.display = "none";
-  }
 }
 
 // Add a "checked" symbol when clicking on a list item
