@@ -7,24 +7,6 @@ document.getElementById("toggle").addEventListener("click", function () {
 // HEADER JS --- START
 
 
-// OPEN POST-IT FULL SCREEN MOBILE --- START
-
-// function openPostIt() {
-//     const postIt = document.getElementById('postIt active');
-//     const application = document.querySelector('.application');
-//     if (postIt.style.display === 'block') {
-//         postIt.style.display = 'none';
-//         application.style = '';
-//     } else {
-//         postIt.style.display = 'block';
-//         application.style.display = 'none';
-//     }
-// }
-
-// OPEN POST-IT FULL SCREEN MOBILE --- END
-
-
-
 // FOOTER JS --- START
 
 function openFormContact() {
