@@ -192,18 +192,26 @@ if (contact) {
 }
  
 // click on a post it to display it at the right on full size
-const existingPosts = document.querySelectorAll(".active");
+const existingPosts = document.querySelectorAll(".postIt");
 const rightSection = document.querySelector(".fullPostIt");
 const leftSection = document.querySelector(".postItSection");
 
-for (let i=0; i < existingPosts.length; i++) {
-    existingPosts[i].onclick = (event) => {
+const displayPostIt = (event) =>
+{
+    const target = event.target.closest('.postIt');
+    if (target)
+    {
         if (window.innerWidth > 600) {// && (event.target.parentElement.classList.contains("postIt") || event.target.classList.contains("postIt"))) {
             rightSection.classList.add('visible');
             leftSection.classList.add('small');
         }
         else {}
-}}
+    }
+}
+
+for (let i=0; i < existingPosts.length; i++) {
+    existingPosts[i].addEventListener('click', displayPostIt);
+}
 
 // close post it
 const closePostIt = document.querySelector(".closePostIt");
@@ -304,6 +312,7 @@ addPostItButton.addEventListener('click', () =>
     const postItSection = document.querySelector('.postItSection'),
         newPostIt = document.createElement('div');
     newPostIt.classList.add('postIt', 'active');
+    newPostIt.addEventListener('click', displayPostIt);
     newPostIt.innerHTML = `<h1>Nouveau post-it</h1>`;
     postItSection.appendChild(newPostIt);
 
