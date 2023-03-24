@@ -224,18 +224,32 @@ newTask.addEventListener("keydown", (e) => {
 });
 
 //const taskForm = document.querySelector("#taskForm");
+// addTaskBtn.onclick = (e) => {
+//     e.preventDefault();
+//     if (newTask.value) {
+//         const text = <li class="item">
+//             <i class="co fa fa-circle-thin" job="complete"></i>
+//             <p class="text"> ${toDo}</p>
+//             <i class="de fa fa-trash-o" job="delete"></i>
+//         </li>
+//         const position = "beforeend";
+//         list.insertAdjacentHTML(position, text);
+//     }
+// }
 addTaskBtn.onclick = (e) => {
     e.preventDefault();
     if (newTask.value) {
         const taskList = document.querySelector(".taskList")
         const li = document.createElement("li");
         const input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
+        input.type = "checkbox";
         const label = document.createElement("label");
-        label.innerHTML = newTask;
+        label.classList.add("task");
+        label.innerHTML = newTask.value;
         input.appendChild(label);
         li.appendChild(input);
         taskList.appendChild(li);
+        list.insertAdjacentHTML("beforeend", li);
         newTask.value = "";
     }
 }
