@@ -475,8 +475,8 @@ header {
 #toggle {
     -webkit-appearance: none;
     appearance: none;
-    height: 30px;
-    width: 58px;
+    height: 25px;
+    width: 50px;
     background-color: rgb(46, 105, 214);
     position: absolute;
     right: 1rem;
@@ -502,11 +502,12 @@ svg.logo {
     content: "";
     position: absolute;
     display: inline-block;
-    top: 0px;
-    height: 30px;
-    left: 1px;
-    width: 31px;
-    background-image: url("assets/soleil2.png");
+    top: 2.5px;
+    height: 20px;
+    left: 4px;
+    width: 20px;
+    background: url(assets/soleil2.png);
+    background-size: contain;
     transition: all .3s;
     border-radius: 50%;
 }
@@ -517,9 +518,11 @@ svg.logo {
 
 .dark-theme #toggle:after {
     background-color: transparent;
-    background-image: url("assets/lune5.png");
-    top: 0;
-    left: 30px;
+    background-image: url(assets/lune5.png);
+    background-size: 23px;
+    background-position: 1px 1px;
+    top: 2.5px;
+    left: 25px;
 }
 
 
@@ -602,6 +605,7 @@ button .textBtnContact {
     color: whitesmoke;
     border: 1px solid gray;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.15);
+    z-index: 1;
 }
 
 button .textBtnAddTask {
