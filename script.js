@@ -187,7 +187,6 @@ const displayPostIt = (event) =>
         else {}
 
     createCloseBtn(existingPosts[i]);
-}}
     }
 }
 
