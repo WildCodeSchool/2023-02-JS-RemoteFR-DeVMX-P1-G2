@@ -20,7 +20,7 @@
 
     <header>
         <svg class="logo" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1154.000000pt" height="216.000000pt"
-            viewBox="0 0 1154.000000 216.000000" preserveAspectRatio="xMidYMid meet">
+            viewBox="0 0 1954.000000 216.000000" preserveAspectRatio="xMidYMid meet">
 
             <g transform="translate(0.000000,216.000000) scale(0.100000,-0.100000)">
                 <path d="M2060 2029 c-253 -28 -441 -242 -534 -606 -34 -130 -46 -218 -41
@@ -340,36 +340,44 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
         <input type="checkbox" id="toggle">
 
     </header>
-
-
     <main>
         <section class="addTask">
-        
             <section class="application">
                 <div class="postItSection">
-        
                     <button class="btnAddTask" onclick="">+</button>
-    
                     <div class="postIt active">
                         <h1>Travail</h1>
                         <p>Rendre le projet <br>
                             Faire ses quêtes</p>
                     </div>
-                    <!-- <button class="add-note postIt" type="button">+</button> -->
+                </div>   
+            </div>
+            <div class="fullPostIt hide">
+                <h1>Titre</h1>
+                <button class="closePostIt">&#215;</button>
+                <form action="" id="taskForm">
+                    <input type="text" id="myInput" placeholder="Add a task here">
+                    <button class="addTaskBtn">+</button>
+                </form>
+                
+                <ul class="taskList">
+                    <li><input type="checkbox"><label>Task 1</label></li>
+                    <li><input type="checkbox"><label>Task 2</label></li>
+                    <li><input type="checkbox"><label>Task 3</label></li>
+                </ul>
+                
+                <!-- Colour picker buttons -->
+                <div id="colour-picker-buttons" class="btn-container">
+                    <button class="btn couleur-1" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(blue, pink)"><span>Choisir cette couleur pour le post-it</span></button>
+                    <button class="btn couleur-2" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93))"><span>Choisir cette couleur pour le post-it</span></button>
+                    <button class="btn couleur-3" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147))"><span>Choisir cette couleur pour le post-it</span></button>
+                    <button class="btn couleur-4" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131))"><span>Choisir cette couleur pour le post-it</span></button>
                 </div>
-                <div class="fullPostIt hide">
-                    <!-- Colour picker buttons -->
-                    <div id="colour-picker-buttons" class="btn-container">
-                        <button class="btn couleur-1" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(blue, pink)"><span>Choisir cette couleur pour le post-it</span></button>
-                        <button class="btn couleur-2" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93))"><span>Choisir cette couleur pour le post-it</span></button>
-                        <button class="btn couleur-3" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147))"><span>Choisir cette couleur pour le post-it</span></button>
-                        <button class="btn couleur-4" title="Choisir cette couleur pour le post-it" data-color="linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131))"><span>Choisir cette couleur pour le post-it</span></button>
-                    </div>
-                    <!-- Colour picker buttons end -->
-                    <!-- Delete post-it -->
-                    <button class="btn-garbage" type="button"><img src="assets/garbage.png"></button>
-                    <!-- Delete post-it end -->
-                </div>
+                <!-- Colour picker buttons end -->
+                <!-- Delete post-it -->
+                <button class="btn-garbage" type="button"><img src="assets/garbage.png"></button>
+                <!-- Delete post-it end -->
+            </div>
             </section>
         </section>
     
@@ -396,10 +404,7 @@ c4 -6 2 -14 -4 -16 -25 -8 -11 -22 23 -22 26 0 33 3 29 15 -10 26 22 17 36
         <!-- End contact form -->
     
     </main>
-
-
     <footer>
-
         <section>
             <button class="btnContact" onclick="openFormContact()">
                 &#9993;
