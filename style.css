@@ -940,21 +940,25 @@ div>p {
 }
 
 .btn.couleur-1 {
-    background: linear-gradient(blue, pink);
+    color: black;
+    background: linear-gradient(rgb(87, 151, 247), rgb(137, 195, 248));
     border-radius: 10px 100px / 120px;
 }
 
 .btn.couleur-2 {
-    background: linear-gradient(rgb(12, 230, 59), rgb(214, 248, 93));
+    color: black;
+    background: linear-gradient(rgb(122, 241, 148), rgb(229, 248, 159));
     border-radius: 100px 10px / 120px;
 }
 
 .btn.couleur-3 {
-    background: linear-gradient(rgb(248, 139, 131), rgb(214, 13, 147));
+    color: black;
+    background: linear-gradient(rgb(248, 139, 131), rgb(248, 167, 228));
     border-radius: 100px 10px / 120px;
 }
 
 .btn.couleur-4 {
+    color: black;
     background: linear-gradient(rgb(65, 216, 236), rgb(88, 233, 131));
     border-radius: 10px 100px / 120px;
 }

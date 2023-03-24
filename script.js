@@ -30,15 +30,12 @@ tasks.set('settings', new Map());
 tasks.set('groups', new Map());
 
 // Add group
-function addGroup(group, settings = '#4da4d6') {
+function addGroup(group, settings = ['white', '#4da4d6']) {
     // Clean the group name by removing all the whitespaces at the start and the end of the string
     group = group.trim();
 
     // The group name must not be empty
     if (!group) return 'Le regroupement doit comporter au moins un mot.';
-
-    // If the settings are not valid (i.e. a CSS hexadecimal colour code), use the default ones
-    if (!settings.match(/#[0-9a-f]{6}/i)) settings = '#4da4d6';
 
     // Create the group with the settings
     tasks.get('settings').set(group, settings);
@@ -49,11 +46,11 @@ function addGroup(group, settings = '#4da4d6') {
 }
 
 // Update group
-function updateGroup(group, background)
+function updateGroup(group, color, background)
 {
     // Update the settings of the concerned group, if present
     if (!tasks.get('settings').has(group)) return 'Le regroupement que vous avez demandé à mettre à jour n’a pas été trouvé.';
-    tasks.get('settings').set(group, background);
+    tasks.get('settings').set(group, [color, background]);
 
     // Return true
     return true;
@@ -265,13 +262,16 @@ for (let button of colourPickerButtons)
     button.addEventListener('click', () =>
     {
         const colour = button.dataset.color,
+            background = button.dataset.background,
             activePostIt = document.querySelectorAll('.postIt.active, .fullPostIt'),
             activePostItTitle = document.querySelector('.postIt.active h1').innerText;
         for (let postIt of activePostIt)
         {
             postIt.dataset.color = colour;
-            postIt.style.background = postIt.dataset.color;
-            updateGroup(activePostItTitle, postIt.dataset.color);
+            postIt.dataset.background = background;
+            postIt.style.color = postIt.dataset.color;
+            postIt.style.background = postIt.dataset.background;
+            updateGroup(activePostItTitle, [postIt.dataset.color, postIt.dataset.background]);
         }
     });
 }
