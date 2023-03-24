@@ -197,8 +197,8 @@ input[type="radio"] {
 input[type="search"] {
     /**
      * Field default appearance removal
-     * @css-for Safari
-     */
+     * @css-for Safari*/
+     
     appearance: none;
 }
 
@@ -465,7 +465,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
     position: fixed;
     top: 0;
     right: 0;
@@ -475,12 +475,12 @@ header {
 #toggle {
     -webkit-appearance: none;
     appearance: none;
-    height: 40px;
-    width: 75px;
+    height: 30px;
+    width: 58px;
     background-color: rgb(46, 105, 214);
     position: absolute;
     right: 1rem;
-    border-radius: 20px;
+    border-radius: 25px;
     outline: none;
     cursor: pointer;
     top: 1rem;
@@ -502,13 +502,12 @@ svg.logo {
     content: "";
     position: absolute;
     display: inline-block;
-    top: 5px;
+    top: 0px;
     height: 30px;
-    left: 7px;
-    width: 30px;
+    left: 1px;
+    width: 31px;
     background-image: url("assets/soleil2.png");
-    ;
-    transition: all .5s;
+    transition: all .3s;
     border-radius: 50%;
 }
 
@@ -519,8 +518,8 @@ svg.logo {
 .dark-theme #toggle:after {
     background-color: transparent;
     background-image: url("assets/lune5.png");
-    top: 4px;
-    left: 40px;
+    top: 0;
+    left: 30px;
 }
 
 
@@ -674,8 +673,23 @@ th {
     --max-width-postIt: 259px;
     --full-postIt: 35%;
     --postIt-section: 60%;
-}
+    /* colors */
+    --light-blue: #4DA4D6;
+    --medium-blue: #3984AF;
+    --dark-blue: #1F6C99;
+    --purple: #7B5CE4;
+    /* hover colors */
+    --light-blue-h: #349bd6;
+    --medium-blue-h: #227db1;
+    --dark-blue-h: #0d679b;
+    --purple-h: #6c48e4;
+    /* button colors */
+    --btn-blue: #1F6C99;
+    --btn-purple: #5427e7;
+    --btn-blue-h: #0f5279;
+    --btn-purple-h: #4012d8;
 
+}
 
 .application {
     display: flex;
@@ -752,12 +766,13 @@ div>p {
     font-size: clamp(0.7rem, 5vw, 1rem);
     padding: 15px 10px;
 }
-
+.hide { display: none;}
 .visible {
     width: var(--full-postIt);
-    height: 70vh;
-    background-color: #4DA4D6;
+    background-color: var(--light-blue);
     border-radius: 10px;
+    display: block; 
+    height: 75vh;
 }
 
 @media screen and (max-width: 600px) {
@@ -770,6 +785,108 @@ div>p {
 .small {
     width: var(--postIt-section);
 }
+
+/* ------ full post it style ------ */
+
+.fullPostIt {
+    color: white;
+    position: relative;
+}
+.fullPostIt h1 {
+    font-size: 1.6rem;
+    margin: 15px 0 20px 15px;
+}
+.fullPostIt>.closePostIt {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    height: 25px;
+    border: none;
+    color: white;
+    line-height: 0;
+    font-size: 2.5rem;
+}
+.fullPostIt>.closePostIt:hover {
+    background-color: var(--dark-blue-h);
+}
+
+
+.fullPostIt>form {
+    display:flex;
+    justify-content: space-between;
+    padding:0 20px 10px;
+    margin-bottom: 20px;
+
+}
+
+.fullPostIt>form>input {
+    border-radius: 8px;
+    padding: 0 10px;
+    background-color: var(--dark-blue-h);
+    color: white;
+    border-color: white;
+    border: none;
+    width: 75%;
+}
+.fullPostIt>form>input::placeholder {
+    color: white;
+}
+
+.fullPostIt>form>button {
+    background-color: var(---blue-h);
+    border-radius: 3px;
+    font-size: 1.7rem;
+    padding: 0 10px;
+    color: white;
+    height: 30px;
+    line-height: 0; /* remove space before the text */
+}
+.fullPostIt>form>button:hover {
+    background-color: var(--dark-blue-h);
+}
+
+.fullPostIt>ul>li>input {
+    width: 17px;
+    height: 17px;
+    background-color: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style-type: none;
+    transition: 0.2s;
+    user-select: none; /* make the list items unselectable */
+    margin: 5px 15px;
+    border: 1px solid white;
+    vertical-align: middle;
+    }
+
+.fullPostIt>ul>li {
+    font-size: 1.1rem;
+    padding: 10px 8px 10px 20px;
+    position: relative; 
+}
+
+.fullPostIt>ul>li:hover {
+    background: #196b9b;
+}
+.fullPostIt>ul>li>input.checked {
+    text-decoration: line-through;
+}
+  
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 9px 16px;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    height: inherit;
+  }
+  
+  .close:hover {
+    background-color: var(--btn-blue);
+  }
 
 @media screen and (min-width:600px) {
 

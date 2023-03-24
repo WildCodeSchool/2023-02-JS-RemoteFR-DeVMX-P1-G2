@@ -191,17 +191,81 @@ if (contact) {
     });
 }
  
-// OPEN POST-IT --- START
-document.onclick = (event) => {
-    const rightSection = document.querySelector(".fullPostIt");
-    const leftSection = document.querySelector(".postItSection");
-    if (window.innerWidth > 600 && (event.target.parentElement.classList.contains("active") || event.target.classList.contains("active"))) {
-        rightSection.classList.add('visible');
-        leftSection.classList.add('small');
+// click on a post it to display it at the right on full size
+const existingPosts = document.querySelectorAll(".active");
+const rightSection = document.querySelector(".fullPostIt");
+const leftSection = document.querySelector(".postItSection");
+
+for (let i=0; i < existingPosts.length; i++) {
+    existingPosts[i].onclick = (event) => {
+        if (window.innerWidth > 600) {// && (event.target.parentElement.classList.contains("postIt") || event.target.classList.contains("postIt"))) {
+            rightSection.classList.add('visible');
+            leftSection.classList.add('small');
+        }
+        else {}
+}}
+
+// close post it
+const closePostIt = document.querySelector(".closePostIt");
+closePostIt.onclick = () => {
+    rightSection.classList.toggle('visible');
+    leftSection.classList.remove('small');
+}
+
+// adding a task inside the post it
+let addTaskBtn = document.querySelector(".addTaskBtn");
+const newTask = document.querySelector("#myInput");
+
+newTask.addEventListener("keydown", (e) => {
+     if (e.key === "Enter") {
+        e.preventDefault();
+        addTaskBtn.click();
+    }
+});
+
+//const taskForm = document.querySelector("#taskForm");
+addTaskBtn.onclick = (e) => {
+    e.preventDefault();
+    if (newTask.value) {
+        const taskList = document.querySelector(".taskList")
+        const li = document.createElement("li");
+        const input = document.createElement("input");
+        input.setAttribute("type", "checkbox");
+        const label = document.createElement("label");
+        label.innerHTML = newTask;
+        input.appendChild(label);
+        li.appendChild(input);
+        taskList.appendChild(li);
+        newTask.value = "";
     }
 }
 
-// OPEN POST-IT --- END
+// Create a "close" button and append it to each list item
+let li = document.getElementsByTagName("li");
+for (let i = 0; i < li.length; i++) {
+  let closeTask = document.createElement("button");
+  let txt = document.createTextNode("\u00D7");
+  closeTask.className = "close";
+  closeTask.appendChild(txt);
+  li[i].appendChild(closeTask);
+}
+
+// Click on a close button to hide the current list item
+const close = document.getElementsByClassName("close");
+for (let i = 0; i < close.length; i++) {
+  close[i].onclick = () => {
+    close[i].parentElement.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+const checkBox = document.querySelector("input[type='checkbox']");
+for (let i = 0; i < checkBox.length; i++) {
+    checkBox[i].addEventListener('click', (e) => {
+        checkBox[i].classList.toggle('checked');//e.target.classList.toggle('checked');
+})}
+
+// ----- OPEN POST-IT --- END
 
 // Colour picker buttons
 const colourPickerButtons = document.querySelectorAll('#colour-picker-buttons button');
@@ -221,6 +285,32 @@ for (let button of colourPickerButtons)
         }
     });
 }
+
+// Add post-it
+const addPostItButton = document.querySelector('.postItSection .btnAddTask');
+// On click, add the post-it
+addPostItButton.addEventListener('click', () =>
+{
+    const fullPostIt = document.querySelector('.fullPostIt');
+
+    // remove the active class from any oth post-it
+    const activePostIt = document.querySelectorAll('.postIt.active');
+    for (let active of activePostIt)
+    {
+        active.classList.remove('active');
+    }
+
+    // Add the new post-it to the section showing the post-it blocks
+    const postItSection = document.querySelector('.postItSection'),
+        newPostIt = document.createElement('div');
+    newPostIt.classList.add('postIt', 'active');
+    newPostIt.innerHTML = `<h1>Nouveau post-it</h1>`;
+    postItSection.appendChild(newPostIt);
+
+    // Make the full post-it visible
+    fullPostIt.classList.add('visible');
+    document.querySelector('.postItSection').classList.add('small');
+});
 
 // Delete post-it
 const deletePostItButton = document.querySelector('.fullPostIt .btn-garbage');
