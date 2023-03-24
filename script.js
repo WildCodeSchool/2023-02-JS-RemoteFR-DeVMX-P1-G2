@@ -185,8 +185,6 @@ const displayPostIt = (event) =>
             leftSection.classList.add('small');
         }
         else {}
-
-    createCloseBtn(existingPosts[i]);
     }
 }
 
